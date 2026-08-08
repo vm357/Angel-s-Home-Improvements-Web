@@ -1239,3 +1239,23 @@ nav.navbar.scrolled .nav-logo,
     margin-right: auto;
   }
 }
+
+
+/* contact page logo: 375px is nearly the full width of a small phone, so the
+   mark crowds its column and any stray padding reads as a shift to the right.
+   Cap it well inside the column and centre it explicitly. */
+@media (max-width: 767.98px) {
+  .about-contact .about-logo {
+    max-width: 250px !important;
+    width: 100%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block;
+  }
+}
+
+@media (max-width: 420px) {
+  .about-contact .about-logo {
+    max-width: 200px !important;
+  }
+}

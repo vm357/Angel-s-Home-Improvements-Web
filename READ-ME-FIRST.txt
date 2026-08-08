@@ -1,29 +1,21 @@
-Updated since your last push. Copy each file to the same path in the repo,
+Updated since the last zip. Copy each to the same path in the repo,
 overwriting what is there.
 
-  index.dc.html                 section swap + slider drag fix
-  our-work.dc.html              slider drag fix, CTA classes
-  interior-services.dc.html     CTA class
-  exterior-services.dc.html     CTA class
-  project-gallery.dc.html       "Add or replace photos" button removed
-  Site Footer.dc.html           Gallery link, new stacked logo
-  site/upgrade.css              all the mobile fixes
-  site/upgrade.js               slider rewrite (see note 3)
+TEXT
+  our-work.dc.html        poster images added to the three videos
+  site/upgrade.css        contact-page logo sizing + centring on mobile
 
-  site/footer-logo-stacked.png  NEW FILE - the stacked footer logo
+BINARY (in site/)
+  ourworkvideo.mp4        trimmed  7.2 -> 2.8 MB
+  video1.mp4              trimmed  4.2 -> 2.3 MB
+  ourwork-right.mp4       trimmed 11.5 -> 3.1 MB
+  poster-left.jpg         NEW  105 KB
+  poster-middle.jpg       NEW   31 KB
+  poster-right.jpg        NEW   83 KB
 
-ONE DELETION:
-  .image-slots.state.json   -> delete this file from the repo
-Copying files over will not remove it. It held the gallery photos before
-they became real files in site/gallery/; leaving it costs 1.2 MB and does
-nothing. Nothing breaks if you forget, it is just dead weight.
+Nothing to delete this time.
 
-Notes
-1. Everything here is a fix to the ten mobile/desktop items, plus the
-   footer logo. No content changed.
-2. The .gitignore from the previous zip must already be in place. If you
-   skipped it, photos published through /admin get dropped on commit.
-3. site/upgrade.js is not actually loaded by any page -- each page carries
-   its own copy of the slider code inline. I fixed both. upgrade.js is
-   updated to match so the two do not drift, but it changes nothing on
-   its own.
+Note: if you have not yet pushed the previous zip (index.dc.html,
+interior/exterior-services, project-gallery, Site Footer, upgrade.js,
+footer-logo-stacked.png), push that first -- this one does not include
+those files.
