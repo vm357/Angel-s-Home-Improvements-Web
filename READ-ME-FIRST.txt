@@ -1,0 +1,19 @@
+Three files changed since the last zip. Copy them into your repo:
+
+1. Site Header.dc.html   -> repo root (overwrite)
+      Adds the invite-link forwarder. This is the fix for the
+      invite email dropping you on the homepage.
+
+2. ADMIN-SETUP.md        -> repo root (overwrite)
+      Added a "Test it yourself first" section.
+
+3. gitignore.txt         -> repo root, RENAMED to  .gitignore  (overwrite)
+      Was "uploads/", now "/uploads/". The old version also matched
+      site/uploads/, which is where the CMS puts published photos --
+      every photo Angel published would have been silently dropped.
+      Renaming matters: a file literally named "gitignore.txt" does
+      nothing. It must start with a dot and have no extension.
+
+Nothing else changed. Push, wait for the deploy to finish, then click
+your invite link again. If it has already been used, delete yourself
+under Identity -> Users and re-invite.

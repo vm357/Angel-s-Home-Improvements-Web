@@ -7,6 +7,20 @@
 </head>
 <body>
 <x-dc>
+<helmet>
+<script>
+// Netlify Identity invite/recovery links land on the site root, where no
+// identity widget exists to catch the token. Forward the hash to /admin/,
+// which loads the widget and shows the set-password prompt.
+(function () {
+  var h = window.location.hash || '';
+  if (/\b(invite_token|recovery_token|confirmation_token|email_change_token)=/.test(h)
+      && window.location.pathname.indexOf('/admin') !== 0) {
+    window.location.replace('/admin/' + h);
+  }
+})();
+</script>
+</helmet>
 <div class="py-2 {{ topBarClass }}">
   <div class="container-fluid px-4 d-flex align-items-center">
     <div class="top-left">

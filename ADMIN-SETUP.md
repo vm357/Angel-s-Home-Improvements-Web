@@ -24,6 +24,18 @@ The gallery page falls back to its built-in list if `gallery.json` is missing, s
 6. **Invite Angel.** Identity → Invite users → his email. He gets a link, sets a password, and he's in.
 7. **Point the domain at Netlify** (Domain management → Add custom domain).
 
+## Test it yourself first
+
+At step 6, invite **your own** email instead of Angel's. Then:
+
+1. Open `<site>.netlify.app/admin`, log in.
+2. Project Gallery → Photos → Add Photo. Pick any photo, caption it, choose a category, **Publish**.
+3. Watch Netlify's Deploys tab — a commit appears, site rebuilds in ~30s.
+4. Reload `/project-gallery`. The new tile should be there, at the bottom.
+5. Check the repo: the photo is a real file in `site/uploads/`, and `site/gallery.json` has a new row.
+
+If all five hold, invite Angel. If the photo publishes but never appears on the page, tell me — that's `gallery.json` not being read, and it's a fix on my end, not a setup problem.
+
 ## How he uses it
 
 Opens `angelshomeimprovementsinc.com/admin` on his phone, logs in, taps Project Gallery → Photos → Add Photo. Picks a photo from his camera roll, types a caption, picks a category, hits Publish. Live in under a minute.

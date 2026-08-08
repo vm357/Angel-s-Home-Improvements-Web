@@ -1,0 +1,8 @@
+# Raw uploads — originals kept in the design tool, not needed by the site.
+# ~78 MB of uncompressed video/photo. The compressed copies live in site/.
+# NOTE: this is the ROOT uploads/ only. site/uploads/ is where the CMS puts
+# Angel's published photos and must be committed — the leading / matters.
+/uploads/
+
+.DS_Store
+Thumbs.db
