@@ -1246,7 +1246,7 @@ nav.navbar.scrolled .nav-logo,
    Cap it well inside the column and centre it explicitly. */
 @media (max-width: 767.98px) {
   .about-contact .about-logo {
-    max-width: 250px !important;
+    max-width: 300px !important;
     width: 100%;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -1256,6 +1256,6 @@ nav.navbar.scrolled .nav-logo,
 
 @media (max-width: 420px) {
   .about-contact .about-logo {
-    max-width: 200px !important;
+    max-width: 260px !important;
   }
 }
