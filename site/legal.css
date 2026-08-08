@@ -1,0 +1,154 @@
+/* Legal pages (privacy policy / terms of service):
+   pull the generated Termly markup onto the site's own type and palette.
+   Loaded after style.css + upgrade.css. */
+
+.legal-hero {
+  padding: 190px 24px 60px;
+  text-align: center;
+  background: #EDF6EC;
+}
+
+.legal-hero h1 {
+  font-family: 'Canela', Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  color: #1A2130;
+  margin: 0 0 10px;
+}
+
+.legal-hero p {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #5A72A0;
+  margin: 0;
+}
+
+.legal-wrap {
+  background: linear-gradient(180deg, #EDF6EC 0%, #E4EFF2 42%, #c1d6ff 100%);
+  padding: 0 20px 90px;
+}
+
+.legal-doc {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid rgba(26, 33, 48, 0.12);
+  border-radius: 4px;
+  padding: 34px 56px 60px;
+  box-shadow: 0 16px 40px rgba(26, 33, 48, 0.08);
+}
+
+/* the generator pads the top of the document with empty divs and line breaks */
+.legal-doc > div:empty,
+.legal-doc > br {
+  display: none !important;
+}
+
+/* everything the generator emitted, back on the site's font */
+.legal-doc,
+.legal-doc *,
+.legal-doc [data-custom-class='body'],
+.legal-doc [data-custom-class='body'] *,
+.legal-doc [data-custom-class='title'],
+.legal-doc [data-custom-class='title'] *,
+.legal-doc [data-custom-class='subtitle'],
+.legal-doc [data-custom-class='subtitle'] *,
+.legal-doc [data-custom-class='heading_1'],
+.legal-doc [data-custom-class='heading_1'] *,
+.legal-doc [data-custom-class='heading_2'],
+.legal-doc [data-custom-class='heading_2'] *,
+.legal-doc [data-custom-class='body_text'],
+.legal-doc [data-custom-class='body_text'] *,
+.legal-doc [data-custom-class='link'],
+.legal-doc [data-custom-class='link'] * {
+  font-family: 'Sora', sans-serif !important;
+}
+
+/* the generator's own title block is replaced by .legal-hero */
+.legal-doc [data-custom-class='title'],
+.legal-doc [data-custom-class='subtitle'] {
+  display: none !important;
+}
+
+/* strip the generator's badge image */
+.legal-doc span[style*="data:image/svg+xml"] {
+  display: none !important;
+}
+
+.legal-doc [data-custom-class='body_text'],
+.legal-doc [data-custom-class='body_text'] *,
+.legal-doc span,
+.legal-doc li,
+.legal-doc div {
+  color: #404040 !important;
+  font-size: 15px !important;
+  line-height: 1.85 !important;
+}
+
+.legal-doc h1,
+.legal-doc h2,
+.legal-doc h3,
+.legal-doc h1 *,
+.legal-doc h2 *,
+.legal-doc h3 * {
+  color: #1A2130 !important;
+}
+
+.legal-doc h2,
+.legal-doc [data-custom-class='heading_1'] * {
+  font-size: 1.24rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em;
+  line-height: 1.4 !important;
+  margin: 42px 0 6px !important;
+}
+
+.legal-doc h3,
+.legal-doc [data-custom-class='heading_2'] * {
+  font-size: 1.02rem !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  margin: 28px 0 4px !important;
+}
+
+.legal-doc a,
+.legal-doc a *,
+.legal-doc [data-custom-class='link'],
+.legal-doc [data-custom-class='link'] * {
+  color: #5A72A0 !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(131, 180, 255, 0.7);
+  word-break: break-word;
+}
+
+.legal-doc a:hover,
+.legal-doc a:hover * {
+  color: #1A2130 !important;
+}
+
+.legal-doc ul {
+  padding-left: 22px;
+  margin: 8px 0 8px;
+}
+
+.legal-doc table {
+  width: 100% !important;
+  border-collapse: collapse;
+  margin: 14px 0;
+}
+
+.legal-doc table td,
+.legal-doc table th {
+  border: 1px solid rgba(26, 33, 48, 0.12) !important;
+  padding: 10px 12px !important;
+}
+
+@media (max-width: 768px) {
+  .legal-hero {
+    padding: 150px 20px 44px;
+  }
+  .legal-doc {
+    padding: 34px 22px;
+  }
+}

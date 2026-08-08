@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div class="py-2 {{ topBarClass }}">
+  <div class="container-fluid px-4 d-flex align-items-center">
+    <div class="top-left">
+      <a href="https://www.instagram.com/angelshomeimprovent2022/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@angelshomeimprovement" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+    <div class="flex-grow-1"></div>
+    <div class="top-right">
+      <a href="tel:19178613247"><i class="fa-solid fa-phone"></i>(917) 861-3247</a>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg {{ navClass }}">
+  <div class="container">
+    <a class="navbar-brand" href="index.dc.html">
+      <img src="site/image-removebg-preview_1.png" alt="Angel's Home Improvements — home" class="nav-logo" />
+    </a>
+    <div class="collapse navbar-collapse justify-content-center" id="navMenu">
+      <ul class="navbar-nav mx-auto text-center">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" data-bs-toggle="dropdown">
+            Services <i class="fa-solid fa-chevron-down small"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="interior-services.dc.html">Interior Services</a></li>
+            <li><a class="dropdown-item" href="exterior-services.dc.html">Exterior Services</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link {{ workClass }}" href="our-work.dc.html">Our Work</a></li>
+        <li class="nav-item"><a class="nav-link {{ aboutClass }}" href="contact.dc.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link {{ reviewsClass }}" href="reviews.dc.html">Reviews</a></li>
+      </ul>
+      <a class="mobile-phone" href="tel:19178613247"><i class="fa-solid fa-phone"></i>(917) 861-3247</a>
+      <div class="mobile-social">
+        <a href="https://www.instagram.com/angelshomeimprovent2022/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@angelshomeimprovement" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+      <a href="contact.dc.html#quote" class="mobile-cta">Schedule a Consultation</a>
+
+    </div>
+    <div class="d-lg-block text-end">
+      <a href="contact.dc.html#quote" class="cta-btn">Schedule a Consultation</a>
+    </div>
+    <button class="navbar-toggler" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;solid&quot;,&quot;transparent&quot;],&quot;default&quot;:&quot;solid&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;work&quot;,&quot;about&quot;,&quot;reviews&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this._onScroll = () => {
+      const y = window.scrollY
+        || (document.scrollingElement && document.scrollingElement.scrollTop)
+        || document.body.scrollTop
+        || 0;
+      document.querySelectorAll('.transparent-header, .solid-header').forEach(el =>
+        el.classList.toggle('scrolled', y > 50));
+    };
+    // capture phase: the scroll container may be the body, not the window
+    document.addEventListener('scroll', this._onScroll, true);
+    this._onScroll();
+
+    // "Schedule a Consultation": smooth-scroll to the lead form when already on the home page
+    this._onCta = (e) => {
+      const link = e.target.closest('.navbar .cta-btn, .navbar .mobile-cta');
+      if (link) {
+        const menu = document.getElementById('navMenu');
+        if (menu) menu.classList.remove('show');
+        document.querySelectorAll('.navbar-toggler').forEach(b => b.setAttribute('aria-expanded', 'false'));
+      }
+      if (!link) return;
+      // only intercept when the link points at THIS page (the contact page);
+      // elsewhere let it navigate, even though the home page also has a #quote
+      const here = location.pathname.split('/').pop();
+      const dest = (link.getAttribute('href') || '').split('#')[0].split('/').pop();
+      if (dest && dest !== here) return;
+      const target = document.getElementById('quote');
+      if (!target) return;
+      e.preventDefault();
+      const scroller = document.body.scrollHeight > document.body.clientHeight ? document.body : document.scrollingElement;
+      const top = target.getBoundingClientRect().top + scroller.scrollTop - 90;
+      scroller.scrollTo({ top, behavior: 'smooth' });
+    };
+    document.addEventListener('click', this._onCta);
+
+    // Arriving from another page with #quote: the scroll container is the body,
+    // so the browser's own hash jump does not happen — do it here.
+    if (location.hash === '#quote') {
+      const jump = (tries) => {
+        const target = document.getElementById('quote');
+        const scroller = document.body.scrollHeight > document.body.clientHeight ? document.body : document.scrollingElement;
+        if (!target || !scroller) { if (tries) setTimeout(() => jump(tries - 1), 150); return; }
+        const top = target.getBoundingClientRect().top + scroller.scrollTop - 90;
+        scroller.scrollTo({ top, behavior: 'smooth' });
+      };
+      setTimeout(() => jump(12), 250);
+    }
+
+    // Services dropdown, driven here instead of relying on the Bootstrap bundle
+    this._onClick = (e) => {
+      const toggle = e.target.closest('.navbar .dropdown-toggle');
+      const menu = document.querySelector('.navbar .dropdown-menu');
+      if (!menu) return;
+      if (toggle) {
+        e.preventDefault();
+        const open = menu.classList.contains('show');
+        menu.classList.toggle('show', !open);
+        toggle.classList.toggle('show', !open);
+        toggle.setAttribute('aria-expanded', String(!open));
+      } else if (!e.target.closest('.navbar .dropdown-menu')) {
+        menu.classList.remove('show');
+        document.querySelectorAll('.navbar .dropdown-toggle').forEach(t => t.classList.remove('show'));
+      }
+    };
+    document.addEventListener('click', this._onClick);
+
+    // mobile nav toggle, same reason
+    this._onToggle = (e) => {
+      const btn = e.target.closest('.navbar-toggler');
+      if (!btn) return;
+      e.preventDefault();
+      const menu = document.getElementById('navMenu');
+      if (!menu) return;
+      const open = menu.classList.toggle('show');
+      btn.setAttribute('aria-expanded', String(open));
+      if (!open) {
+        const dd = document.querySelector('.navbar .dropdown-menu');
+        if (dd) dd.classList.remove('show');
+      }
+    };
+    document.addEventListener('click', this._onToggle);
+  }
+  componentWillUnmount() {
+    if (this._onScroll) document.removeEventListener('scroll', this._onScroll, true);
+    if (this._onClick) document.removeEventListener('click', this._onClick);
+    if (this._onToggle) document.removeEventListener('click', this._onToggle);
+  }
+  renderVals() {
+    const active = this.props.active || '';
+    const transparent = this.props.variant === 'transparent';
+    return {
+      headerClass: transparent ? 'transparent-header' : 'solid-header',
+      navClass: transparent ? 'transparent-header' : 'navbar-about solid-header',
+      topBarClass: transparent ? 'top-bar transparent-header' : 'top-bar-about solid-header',
+      workClass: active === 'work' ? 'active' : '',
+      aboutClass: active === 'about' ? 'active' : '',
+      reviewsClass: active === 'reviews' ? 'active' : ''
+    };
+  }
+}
+</script>
+</body>
+</html>

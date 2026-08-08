@@ -1,0 +1,6 @@
+# Raw uploads — originals kept in the design tool, not needed by the site.
+# ~78 MB of uncompressed video/photo. The compressed copies live in site/.
+uploads/
+
+.DS_Store
+Thumbs.db

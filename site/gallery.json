@@ -1,0 +1,160 @@
+{
+  "photos": [
+    {
+      "id": "g-kit-2",
+      "image": "site/gallery/g-kit-2.webp",
+      "caption": "Full Kitchen Redesign",
+      "category": "Kitchens"
+    },
+    {
+      "id": "g-kit-3",
+      "image": "site/kitchen.avif",
+      "caption": "New Custom Kitchen",
+      "category": "Kitchens"
+    },
+    {
+      "id": "g-bath-1",
+      "image": "site/gallery/g-bath-1.webp",
+      "caption": "Full bathroom remodel",
+      "category": "Bathrooms"
+    },
+    {
+      "id": "g-bath-2",
+      "image": "site/gallery/g-bath-2.webp",
+      "caption": "Guest Bathroom",
+      "category": "Bathrooms"
+    },
+    {
+      "id": "g-bath-4",
+      "image": "site/gallery/g-bath-4.webp",
+      "caption": "His + Her Sink",
+      "category": "Bathrooms"
+    },
+    {
+      "id": "g-int-5",
+      "image": "site/gallery/g-int-5.webp",
+      "caption": "Bathroom Redesign",
+      "category": "Bathrooms"
+    },
+    {
+      "id": "g-bath-5",
+      "image": "site/gallery/g-bath-5.webp",
+      "caption": "Bench Shower",
+      "category": "Bathrooms"
+    },
+    {
+      "id": "g-bath-6",
+      "image": "site/gallery/g-bath-6.webp",
+      "caption": "Guest Bathroom",
+      "category": "Bathrooms"
+    },
+    {
+      "id": "g-int-1",
+      "image": "site/gallery/g-int-1.webp",
+      "caption": "Custom TV Setup with Fireplace",
+      "category": "Interiors"
+    },
+    {
+      "id": "g-int-2",
+      "image": "site/gallery/g-int-2.webp",
+      "caption": "Stone Fireplace with Built-In TV",
+      "category": "Interiors"
+    },
+    {
+      "id": "g-int-3",
+      "image": "site/gallery/g-int-3.webp",
+      "caption": "Wall Design with Lighting",
+      "category": "Interiors"
+    },
+    {
+      "id": "g-int-4",
+      "image": "site/gallery/g-int-4.webp",
+      "caption": "Slat Wall with Integrated Lighting",
+      "category": "Interiors"
+    },
+    {
+      "id": "g-int-6",
+      "image": "site/image5.png",
+      "caption": "Sunroom Refresh",
+      "category": "Interiors"
+    },
+    {
+      "id": "g-int-7",
+      "image": "site/gallery/g-int-7.webp",
+      "caption": "Floating TV Wall with Fireplace",
+      "category": "Interiors"
+    },
+    {
+      "id": "g-int-8",
+      "image": "site/after3.png",
+      "caption": "Sunroom Refresh",
+      "category": "Interiors"
+    },
+    {
+      "id": "g-out-1",
+      "image": "site/deck.png",
+      "caption": "Backyard deck build",
+      "category": "Outdoor"
+    },
+    {
+      "id": "g-out-2",
+      "image": "site/gallery/g-out-2.webp",
+      "caption": "Patio and hardscape",
+      "category": "Outdoor"
+    },
+    {
+      "id": "g-out-3",
+      "image": "site/gallery/g-out-3.webp",
+      "caption": "Front patio",
+      "category": "Outdoor"
+    },
+    {
+      "id": "g-bath-3",
+      "image": "site/after2.png",
+      "caption": "Front porch rebuild",
+      "category": "Outdoor"
+    },
+    {
+      "id": "g-new-2",
+      "image": "site/gallery/g-new-2.webp",
+      "caption": "Full Kitchen Refresh",
+      "category": "Kitchens"
+    },
+    {
+      "id": "g-new-3",
+      "image": "site/gallery/g-new-3.webp",
+      "caption": "Outdoor project",
+      "category": "Outdoor"
+    },
+    {
+      "id": "g-new-8",
+      "image": "site/gallery/g-new-8.webp",
+      "caption": "Outdoor project",
+      "category": "Outdoor"
+    },
+    {
+      "id": "g-new-4",
+      "image": "site/gallery/g-new-4.webp",
+      "caption": "Bathroom project",
+      "category": "Bathrooms"
+    },
+    {
+      "id": "g-new-5",
+      "image": "site/gallery/g-new-5.webp",
+      "caption": "Walk-In Shower",
+      "category": "Bathrooms"
+    },
+    {
+      "id": "g-new-6",
+      "image": "site/gallery/g-new-6.webp",
+      "caption": "Bathroom project",
+      "category": "Bathrooms"
+    },
+    {
+      "id": "g-new-7",
+      "image": "site/gallery/g-new-7.webp",
+      "caption": "Tub + Shower with Floating Sink",
+      "category": "Bathrooms"
+    }
+  ]
+}

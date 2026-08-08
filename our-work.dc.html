@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="icon" type="image/png" href="site/favicon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Angel's Home Improvements">
+  <meta property="og:title" content="Our Work | Angel's Home Improvements — Staten Island Remodeling">
+  <meta property="og:description" content="Before-and-after photos and project videos from recent kitchen, bathroom, interior and exterior remodels across Staten Island and New Jersey.">
+  <meta property="og:url" content="https://angelshomeimprovementsinc.com/our-work">
+  <meta property="og:image" content="https://angelshomeimprovementsinc.com/site/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Walnut slat accent wall with integrated lighting, built by Angel's Home Improvements">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Our Work | Angel's Home Improvements — Staten Island Remodeling">
+  <meta name="twitter:description" content="Before-and-after photos and project videos from recent kitchen, bathroom, interior and exterior remodels across Staten Island and New Jersey.">
+  <meta name="twitter:image" content="https://angelshomeimprovementsinc.com/site/og-image.jpg">
+  <link rel="apple-touch-icon" href="site/apple-touch-icon.png">
+  <title>Our Work | Angel's Home Improvements — Staten Island Remodeling</title>
+  <link rel="canonical" href="https://angelshomeimprovementsinc.com/our-work">
+  <meta name="description" content="Before-and-after photos and project videos from recent kitchen, bathroom, interior and exterior remodels across Staten Island and New Jersey.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="site/style.css" />
+  <link rel="stylesheet" href="site/upgrade.css?v=5" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    body { background: linear-gradient(180deg, #EDF6EC 0%, #E4EFF2 42%, #c1d6ff 100%); }
+    .ow-reveal { opacity: 0; transform: translateY(22px); transition: opacity .75s cubic-bezier(.2,.7,.3,1), transform .75s cubic-bezier(.2,.7,.3,1); }
+    .ow-reveal.is-in { opacity: 1; transform: none; }
+    @keyframes owBannerIn { from { opacity: 0; } to { opacity: 1; } }
+    .is-artwork-banner { animation: owBannerIn 1.1s ease forwards; }
+    @media (prefers-reduced-motion: reduce) {
+      .ow-reveal { opacity: 1; transform: none; transition: none; }
+      .is-artwork-banner { animation: none; }
+    }
+    .gallery-row { gap: 26px; align-items: flex-start; }
+    .gallery-row .gal-item { flex: 0 0 auto; margin: 0; width: 420px; scroll-snap-align: start; }
+    .gallery-row .gal-item img { width: 100%; height: 300px; }
+    .gallery-row .gal-item figcaption {
+      margin-top: 12px; font-family: 'Sora', sans-serif; font-size: 0.82rem;
+      letter-spacing: .04em; text-transform: uppercase; color: #1A2130;
+    }
+    .gallery-row .gal-item figcaption span { display: block; text-transform: none; letter-spacing: 0; font-size: 0.86rem; color: #5A72A0; margin-top: 3px; }
+    @media (max-width: 640px) {
+      .gallery-row .gal-item { width: 78vw; }
+      .gallery-row .gal-item img { height: 56vw; }
+    }
+  </style>
+</helmet>
+
+<dc-import name="Site Header" variant="solid" active="work" hint-size="100%,140px"></dc-import>
+
+<div class="showcase-page">
+  <section class="showcase-banner is-artwork-banner" style="background-color: #141a26; background-image: url('site/banner.png'); background-repeat: no-repeat; background-position: center 22%; background-size: cover; background-origin: content-box; padding-top: 132px; box-sizing: border-box">
+    <div class="banner-overlay"></div>
+  </section>
+
+  <section class="ba-section">
+    <div class="ba-head">
+      <h2>Before &amp; After</h2>
+      <p>Drag to reveal</p>
+    </div>
+
+    <div class="ba-grid-2">
+      <div>
+        <figure class="ba">
+          <img class="ba-after" src="site/ba-livingroom-after.jpg" alt="After: cedar TV wall with built-in electric fireplace" />
+          <img class="ba-before" src="site/ba-livingroom-before.jpg" alt="Before: TV mounted over an antique cabinet" />
+          <span class="ba-tag ba-tag-before">Before</span>
+          <span class="ba-tag ba-tag-after">After</span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" step="0.1" aria-label="Reveal the after photo" />
+          <div class="ba-divider">
+            <div class="ba-handle"><i class="fa-solid fa-chevron-left"></i><i class="fa-solid fa-chevron-right"></i></div>
+          </div>
+        </figure>
+      </div>
+
+      <div>
+        <figure class="ba">
+          <img class="ba-after" src="site/ba-porch-after.jpg" alt="After: rebuilt front porch with white railing" />
+          <img class="ba-before" src="site/ba-porch-before.jpg" alt="Before: front entry torn out during demolition" />
+          <span class="ba-tag ba-tag-before">Before</span>
+          <span class="ba-tag ba-tag-after">After</span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" step="0.1" aria-label="Reveal the after photo" />
+          <div class="ba-divider">
+            <div class="ba-handle"><i class="fa-solid fa-chevron-left"></i><i class="fa-solid fa-chevron-right"></i></div>
+          </div>
+        </figure>
+      </div>
+
+      <div>
+        <figure class="ba">
+          <img class="ba-after" src="site/after3.png" alt="After renovation" />
+          <img class="ba-before" src="site/before3.png" alt="Before renovation" />
+          <span class="ba-tag ba-tag-before">Before</span>
+          <span class="ba-tag ba-tag-after">After</span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" step="0.1" aria-label="Reveal the after photo" />
+          <div class="ba-divider">
+            <div class="ba-handle"><i class="fa-solid fa-chevron-left"></i><i class="fa-solid fa-chevron-right"></i></div>
+          </div>
+        </figure>
+      </div>
+
+      <div>
+        <figure class="ba">
+          <img class="ba-after" src="site/after.png" alt="After renovation" />
+          <img class="ba-before" src="site/before.png" alt="Before renovation" />
+          <span class="ba-tag ba-tag-before">Before</span>
+          <span class="ba-tag ba-tag-after">After</span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" step="0.1" aria-label="Reveal the after photo" />
+          <div class="ba-divider">
+            <div class="ba-handle"><i class="fa-solid fa-chevron-left"></i><i class="fa-solid fa-chevron-right"></i></div>
+          </div>
+        </figure>
+      </div>
+    </div>
+
+    <div class="ba-hint"><i class="fa-solid fa-arrows-left-right"></i>Drag, tap, or use the arrow keys</div>
+  </section>
+
+  <section class="work-gallery">
+    <h2 class="text-center mb-4">Our Team's Accomplishments</h2>
+    <div class="gallery-container">
+      <button class="gallery-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+      <div class="gallery-row" id="galleryRow">
+        <figure class="gal-item">
+          <img src="site/gallery-bench-shower.png" alt="Luxury Bathroom" />
+          <figcaption>Luxury Bathroom<span>Staten Island, NY</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="site/gallery-kitchen-island.png" alt="Kitchen Remodel" />
+          <figcaption>Kitchen Remodel<span>Staten Island, NY</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="site/gallery-deck-railing.png" alt="Deck &amp; Railing" />
+          <figcaption>Deck &amp; Railing<span>Staten Island, NY</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="site/image3.png" alt="Kitchen Remodel" />
+          <figcaption>Kitchen Remodel<span>Staten Island, NY</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="site/gallery-front-porch.png" alt="Front Porch Rebuild" />
+          <figcaption>Front Porch Rebuild<span>Staten Island, NY</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="site/image5.png" alt="Sunroom Refresh" />
+          <figcaption>Sunroom Refresh<span>Staten Island, NY</span></figcaption>
+        </figure>
+        <figure class="gal-item">
+          <img src="site/gallery-fireplace-wall.png" alt="Fireplace &amp; Media Wall" />
+          <figcaption>Fireplace &amp; Media Wall<span>Staten Island, NY</span></figcaption>
+        </figure>
+      </div>
+      <button class="gallery-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <div style="display: flex; justify-content: center; margin-top: 34px">
+      <a href="project-gallery.dc.html" class="cta-btn" style="min-height: 44px; display: inline-flex; align-items: center; gap: 10px">View All Projects<i class="fa-solid fa-arrow-right" style="font-size: 13px"></i></a>
+    </div>
+  </section>
+
+  <section class="video-grid">
+    <h2 class="text-center mb-5">Project Videos</h2>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4 video-showcase">
+          <a href="https://www.tiktok.com/@angelshomeimprovement/video/7394475983073463594" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; cursor: pointer">
+            <video src="site/ourworkvideo.mp4" preload="auto" muted loop playsinline disablePictureInPicture controlsList="nodownload" style="pointer-events: none"></video>
+          </a>
+        </div>
+        <div class="col-md-4 video-showcase">
+          <a href="https://www.tiktok.com/@angelshomeimprovement/video/7288346921616428331" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; cursor: pointer">
+            <video src="site/video1.mp4" preload="auto" muted loop playsinline disablePictureInPicture controlsList="nodownload" style="pointer-events: none"></video>
+          </a>
+        </div>
+        <div class="col-md-4 video-showcase">
+          <a href="https://www.tiktok.com/@angelshomeimprovement/video/7354460570982092075" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; cursor: pointer">
+            <video src="site/ourwork-right.mp4" preload="auto" muted loop playsinline disablePictureInPicture controlsList="nodownload" style="pointer-events: none"></video>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 24px 24px 88px; display: flex; justify-content: center">
+    <div class="cta-band" style="width: 100%; max-width: 1000px; background: linear-gradient(135deg, #1A2130 0%, #2C3A55 100%); border-radius: 16px; padding: 56px 40px; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; color: #fff">
+      <h2 style="margin: 0; font-family: 'Canela', serif; font-weight: 300; font-size: clamp(1.9rem, 3.2vw, 2.6rem); letter-spacing: .5px">Want results like these in your home?</h2>
+      <p style="margin: 0; max-width: 560px; font-family: 'Sora', sans-serif; font-size: 1rem; line-height: 1.7; opacity: .88">Tell us what you have in mind and we'll get back to you with a free consultation.</p>
+      <a href="contact.dc.html#quote" style="margin-top: 8px; display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 34px; border-radius: 999px; background: #fff; color: #1A2130; font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: .02em; text-decoration: none; transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, letter-spacing .3s ease" style-hover="transform: translateY(-3px); box-shadow: 0 12px 26px rgba(0,0,0,.28); letter-spacing: .06em">Request a Free Estimate</a>
+      <a href="https://www.tiktok.com/@angelshomeimprovement" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; font-family: 'Sora', sans-serif; font-size: 0.86rem; color: rgba(255,255,255,.8); text-decoration: none"><i class="fa-brands fa-tiktok"></i>More transformations on TikTok</a>
+    </div>
+  </section>
+</div>
+
+<dc-import name="Site Footer" hint-size="100%,420px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const targets = [];
+    ['.ba-section .ba-head', '.ba-section .ba-grid-2 > div', '.work-gallery > h2',
+     '.work-gallery .gallery-container', '.video-grid > h2', '.video-grid .video-showcase']
+      .forEach(sel => document.querySelectorAll(sel).forEach(el => targets.push(el)));
+    targets.forEach((el, i) => {
+      el.classList.add('ow-reveal');
+      el.style.transitionDelay = ((i % 3) * 100) + 'ms';
+    });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0 });
+    targets.forEach(el => io.observe(el));
+    const sweep = () => {
+      const h = window.innerHeight || document.documentElement.clientHeight;
+      targets.forEach(el => {
+        if (el.classList.contains('is-in')) return;
+        const r = el.getBoundingClientRect();
+        if (r.top < h * 0.92) { el.classList.add('is-in'); io.unobserve(el); }
+      });
+    };
+    sweep();
+    requestAnimationFrame(sweep);
+    ['scroll', 'resize'].forEach(evt => {
+      window.addEventListener(evt, sweep, { passive: true });
+      document.body.addEventListener(evt, sweep, { passive: true });
+    });
+
+    // Before/After sliders — mirrors site/upgrade.js
+    document.querySelectorAll('.ba').forEach(ba => {
+      const range = ba.querySelector('.ba-range');
+      if (!range) return;
+      const set = () => ba.style.setProperty('--pos', range.value + '%');
+      range.addEventListener('input', set);
+      ['pointerdown', 'touchstart'].forEach(e =>
+        range.addEventListener(e, () => ba.classList.add('is-dragging')));
+      ['pointerup', 'pointercancel', 'touchend', 'blur'].forEach(e =>
+        range.addEventListener(e, () => ba.classList.remove('is-dragging')));
+      set();
+    });
+
+    document.querySelectorAll('.video-showcase video').forEach(v => {
+      v.loop = true;
+      v.muted = true;
+      v.defaultMuted = true;
+      v.volume = 0;
+      v.setAttribute('muted', '');
+      v.addEventListener('volumechange', () => {
+        if (!v.muted) { v.muted = true; v.volume = 0; }
+      });
+    });
+
+    // hold all three at frame 0 until every clip is buffered, then start them together
+    const clips = Array.from(document.querySelectorAll('.video-showcase video'));
+    let started = false;
+    const startAll = () => {
+      if (started) return;
+      started = true;
+      clips.forEach(v => { try { v.currentTime = 0; } catch (e) {} v.play().catch(() => {}); });
+    };
+    // start together once every clip can play through; a slow file can't hold the others
+    // hostage forever, so a per-clip readiness race caps the wait at 8s
+    Promise.all(clips.map(v => v.readyState >= 3
+      ? Promise.resolve()
+      : new Promise(res => {
+          v.addEventListener('canplaythrough', res, { once: true });
+          v.addEventListener('error', res, { once: true });
+        })
+    )).then(startAll);
+    setTimeout(startAll, 8000);
+
+    const gallery = document.getElementById('galleryRow');
+    const next = document.querySelector('.next');
+    const prev = document.querySelector('.prev');
+    if (gallery && next && prev) {
+      next.onclick = () => {
+        gallery.scrollBy({ left: 320, behavior: 'smooth' });
+        if (gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 5) {
+          gallery.scrollTo({ left: 0, behavior: 'smooth' });
+        }
+      };
+      prev.onclick = () => {
+        if (gallery.scrollLeft <= 0) gallery.scrollTo({ left: gallery.scrollWidth, behavior: 'smooth' });
+        else gallery.scrollBy({ left: -320, behavior: 'smooth' });
+      };
+    }
+
+    if (gallery) {
+      // free horizontal scrolling: click-drag and trackpad/wheel
+      let down = false, startX = 0, startLeft = 0, moved = 0;
+      gallery.addEventListener('pointerdown', e => {
+        down = true; moved = 0;
+        startX = e.clientX; startLeft = gallery.scrollLeft;
+        gallery.style.scrollSnapType = 'none';
+        gallery.style.scrollBehavior = 'auto';
+        gallery.setPointerCapture(e.pointerId);
+      });
+      gallery.addEventListener('pointermove', e => {
+        if (!down) return;
+        const dx = e.clientX - startX;
+        moved = Math.max(moved, Math.abs(dx));
+        gallery.scrollLeft = startLeft - dx;
+      });
+      const end = e => {
+        if (!down) return;
+        down = false;
+        gallery.style.scrollSnapType = '';
+        gallery.style.scrollBehavior = '';
+        if (moved > 6) { gallery.addEventListener('click', ev => ev.preventDefault(), { capture: true, once: true }); }
+      };
+      gallery.addEventListener('pointerup', end);
+      gallery.addEventListener('pointercancel', end);
+      gallery.addEventListener('wheel', e => {
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return; // native horizontal scroll
+        if (e.shiftKey) return;
+        const atStart = gallery.scrollLeft <= 0;
+        const atEnd = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 1;
+        if ((e.deltaY < 0 && atStart) || (e.deltaY > 0 && atEnd)) return; // let the page scroll
+        e.preventDefault();
+        gallery.scrollLeft += e.deltaY;
+      }, { passive: false });
+    }
+
+    this._onScroll = () => {
+      document.querySelectorAll('.solid-header').forEach(el =>
+        el.classList.toggle('scrolled', window.scrollY > 50));
+    };
+    window.addEventListener('scroll', this._onScroll);
+  }
+  componentWillUnmount() {
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+  }
+}
+</script>
+</body>
+</html>

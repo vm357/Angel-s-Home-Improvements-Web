@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="icon" type="image/png" href="site/favicon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Angel's Home Improvements">
+  <meta property="og:title" content="Reviews | Angel's Home Improvements — Staten Island, NY">
+  <meta property="og:description" content="Read reviews from Staten Island and New Jersey homeowners, and leave your own with photos of the finished work.">
+  <meta property="og:url" content="https://angelshomeimprovementsinc.com/reviews">
+  <meta property="og:image" content="https://angelshomeimprovementsinc.com/site/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Walnut slat accent wall with integrated lighting, built by Angel's Home Improvements">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Reviews | Angel's Home Improvements — Staten Island, NY">
+  <meta name="twitter:description" content="Read reviews from Staten Island and New Jersey homeowners, and leave your own with photos of the finished work.">
+  <meta name="twitter:image" content="https://angelshomeimprovementsinc.com/site/og-image.jpg">
+  <link rel="apple-touch-icon" href="site/apple-touch-icon.png">
+  <title>Reviews | Angel's Home Improvements — Staten Island, NY</title>
+  <link rel="canonical" href="https://angelshomeimprovementsinc.com/reviews">
+  <meta name="description" content="Read reviews from Staten Island and New Jersey homeowners, and leave your own with photos of the finished work.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site/style.css">
+  <link rel="stylesheet" href="site/upgrade.css?v=5">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    body { background: linear-gradient(180deg, #EDF6EC 0%, #E4EFF2 42%, #c1d6ff 100%); }
+    .trust-bar .trust-item { transition: transform .35s cubic-bezier(.2,.7,.3,1); }
+    .trust-bar .trust-item:hover { transform: translateY(-4px); }
+    .trust-bar .trust-item i { transition: transform .35s cubic-bezier(.2,.7,.3,1), color .3s ease; }
+    .trust-bar .trust-item:hover i { transform: scale(1.14); color: #fff; }
+    @keyframes rvHeroIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+    .review-card.rv-reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1); }
+    .review-card.rv-reveal.is-in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .review-card.rv-reveal { opacity: 1; transform: none; transition: none; }
+    }
+    .showcase-banner .banner-overlay > h1,
+    .showcase-banner .banner-overlay > p {
+      opacity: 0;
+      animation: rvHeroIn .9s cubic-bezier(.2,.7,.3,1) forwards;
+    }
+    .showcase-banner .banner-overlay > h1 { animation-delay: .1s; }
+    .showcase-banner .banner-overlay > p { animation-delay: .28s; }
+    @media (prefers-reduced-motion: reduce) {
+      .showcase-banner .banner-overlay > h1,
+      .showcase-banner .banner-overlay > p { opacity: 1; animation: none; }
+    }
+    .rv-field input, .rv-field select, .rv-field textarea {
+      width: 100%; font-family: 'Sora', sans-serif; font-size: 15px; color: #1A2130;
+      background: #fff; border: 1px solid #d6ddea; border-radius: 8px; padding: 12px 14px;
+      outline: none; transition: border-color .18s ease, box-shadow .18s ease;
+    }
+    .rv-field input:focus, .rv-field select:focus, .rv-field textarea:focus {
+      border-color: #83B4FF; box-shadow: 0 0 0 3px rgba(131,180,255,.25);
+    }
+    .rv-field textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+  </style>
+</helmet>
+
+<dc-import name="Site Header" variant="solid" active="reviews" hint-size="100%,140px"></dc-import>
+
+<div class="about-page showcase-page">
+  <section class="showcase-banner" style="background: radial-gradient(120% 140% at 18% 0%, #2C3A55 0%, #1A2130 55%, #141a26 100%); height: auto; min-height: 0">
+    <div class="banner-overlay" style="padding: 48px 24px 48px">
+      <h1>Reviews</h1>
+      <p>What do homeowners say about working with us?<br></p>
+    </div>
+  </section>
+
+  <section class="trust-bar">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span class="trust-label">Licensed &amp; Insured<span class="trust-sub">License # 2110600-DCA</span></span>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-users"></i>
+        <span class="trust-label">Complimentary Warranty<br /><span class="trust-sub">Confidence Built In</span></span>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-comments"></i>
+        <span class="trust-label">Free Consultations<span class="trust-sub">No obligation</span></span>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-house-chimney"></i>
+        <span class="trust-label">Interior &amp; Exterior<span class="trust-sub">One crew, whole project</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews-strip" style="background: transparent; border: none">
+    <div class="ba-head">
+      <h2>What Our Clients Say</h2>
+      <p>Kitchens · Bathrooms · Basements · Painting · Outdoor Living</p>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card is-sample">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>Two to four sentences from the client, in their own words. The strongest ones name the specific problem they had, what the crew did, and how the finished space works now.</blockquote>
+        <div class="review-meta">Client name — Staten Island, NY · Kitchen remodel</div>
+      </div>
+      <div class="review-card is-sample">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>Reviews that mention timeline and cleanliness convert better than ones that only say "great job" — ask clients whether the schedule and daily cleanup met expectations.</blockquote>
+        <div class="review-meta">Client name — Town, NJ · Bathroom renovation</div>
+      </div>
+      <div class="review-card is-sample">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>A line about communication during the project reassures homeowners more than praise for the finished photos, which they can already see above.</blockquote>
+        <div class="review-meta">Client name — Town, NY · Basement finish</div>
+      </div>
+      <div class="review-card is-sample">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>Short reviews are fine. One specific detail beats three sentences of general praise.</blockquote>
+        <div class="review-meta">Client name — Town, NY · Interior painting</div>
+      </div>
+      <div class="review-card is-sample">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>If a client mentions a change or problem that got resolved well, that review is worth more than a flawless one — it shows how you handle issues.</blockquote>
+        <div class="review-meta">Client name — Town, NJ · Deck build</div>
+      </div>
+      <div class="review-card is-sample">
+        <div class="review-stars">★★★★★</div>
+        <blockquote>Ask permission to use first name, last initial and town. That specificity is what makes a review read as real.</blockquote>
+        <div class="review-meta">Client name — Town, NY · Outdoor kitchen</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tiktok-section">
+    <div class="tiktok-box" style="max-width: 760px">
+      <h2>Worked With Us?</h2>
+      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+        <div style="position: relative; z-index: 2; background: rgba(255,255,255,.96); border-radius: 14px; padding: 44px 32px; text-align: center">
+          <div style="font-size: 34px; color: #83B4FF; margin-bottom: 14px"><i class="fa-solid fa-circle-check"></i></div>
+          <h3 style="font-size: 22px; color: #1A2130; margin-bottom: 10px">Thank you</h3>
+          <p style="color: #4a5568; font-size: 15px; margin: 0 auto; max-width: 420px; line-height: 1.6">Your review was sent to us for posting. We read every one, and we may reach out before it goes live on this page.</p>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+        <p class="mb-4">Leave a review below. Photos of the finished space are welcome — they help other homeowners picture the work.</p>
+        <form onSubmit="{{ onSubmit }}" encType="multipart/form-data" style="position: relative; z-index: 2; background: rgba(255,255,255,.96); border-radius: 14px; padding: 30px; text-align: left; display: grid; gap: 18px">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px">
+            <div class="rv-field">
+              <label style="display: block; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #1A2130; margin-bottom: 7px">Name</label>
+              <input type="text" name="name" required="" placeholder="First name and last initial">
+            </div>
+            <div class="rv-field">
+              <label style="display: block; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #1A2130; margin-bottom: 7px">Town &amp; State</label>
+              <input type="text" name="town" required="" placeholder="Staten Island, NY">
+            </div>
+          </div>
+
+          <div>
+            <label style="display: block; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #1A2130; margin-bottom: 7px">Rating</label>
+            <div style="display: flex; align-items: center; gap: 6px">
+              <sc-for list="{{ stars }}" as="star" hint-placeholder-count="5">
+                <button type="button" onClick="{{ star.onClick }}" aria-label="{{ star.label }}" style="background: none; border: none; padding: 0 2px; font-size: 30px; line-height: 1; cursor: pointer; color: {{ star.color }}">★</button>
+              </sc-for>
+              <span style="margin-left: 8px; font-size: 14px; color: #4a5568">{{ ratingLabel }}</span>
+            </div>
+          </div>
+
+          <div class="rv-field">
+            <label style="display: block; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #1A2130; margin-bottom: 7px">Your Review</label>
+            <textarea name="review" required="" placeholder="What did we build for you, how did the crew work, and how does the space work now?"></textarea>
+          </div>
+
+          <div>
+            <label style="display: block; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #1A2130; margin-bottom: 7px">Photos <span style="font-weight: 400; text-transform: none; letter-spacing: 0; color: #8794a8">(optional)</span></label>
+            <label style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border: 1px dashed #83B4FF; border-radius: 8px; background: #f4f8ff; color: #1A2130; font-size: 14px; cursor: pointer; min-height: 44px" style-hover="background: #e8f1ff">
+              <i class="fa-solid fa-image"></i>
+              <span>Add photos of the finished space</span>
+              <input type="file" name="photos" accept="image/*" multiple="" onChange="{{ onFiles }}" style="display: none">
+            </label>
+            <sc-if value="{{ hasPhotos }}" hint-placeholder-val="{{ false }}">
+              <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px">
+                <sc-for list="{{ photos }}" as="photo" hint-placeholder-count="0">
+                  <div title="{{ photo.name }}" style="{{ photo.style }}">
+                    <button type="button" onClick="{{ photo.onRemove }}" aria-label="Remove photo" style="position: absolute; top: 4px; right: 4px; width: 22px; height: 22px; border-radius: 50%; border: none; background: rgba(26,33,48,.78); color: #fff; font-size: 11px; line-height: 1; cursor: pointer">✕</button>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+
+          <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+            <p style="margin: 0; font-size: 14px; color: #b3261e; background: #fdecea; border-radius: 8px; padding: 12px 14px">{{ error }}</p>
+          </sc-if>
+
+          <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap">
+            <button type="submit" disabled="{{ sending }}" class="cta-btn" style="border: none; min-height: 44px">Submit Review</button>
+            <span style="font-size: 13px; color: #6b7787; max-width: 300px; line-height: 1.5">Reviews are posted after we confirm the project.</span>
+          </div>
+        </form>
+      </sc-if>
+    </div>
+  </section>
+</div>
+
+<dc-import name="Site Footer" hint-size="100%,420px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;formEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Review form&quot;}}">
+class Component extends DCLogic {
+  state = { rating: 5, photos: [], submitted: false, sending: false, error: "" };
+
+  componentDidMount() {
+    const cards = Array.from(document.querySelectorAll('.reviews-grid .review-card'));
+    cards.forEach((el, i) => {
+      el.classList.add('rv-reveal');
+      el.style.transitionDelay = (i * 110) + 'ms';
+    });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0 });
+    cards.forEach(el => io.observe(el));
+
+    const sweep = () => {
+      const h = window.innerHeight || document.documentElement.clientHeight;
+      cards.forEach(el => {
+        if (el.classList.contains('is-in')) return;
+        const r = el.getBoundingClientRect();
+        if (r.top < h * 0.92) { el.classList.add('is-in'); io.unobserve(el); }
+      });
+    };
+    sweep();
+    requestAnimationFrame(sweep);
+    ['scroll', 'resize'].forEach(evt => {
+      window.addEventListener(evt, sweep, { passive: true });
+      document.body.addEventListener(evt, sweep, { passive: true });
+    });
+    this._rvSweep = sweep;
+  }
+
+  setRating(n) { this.setState({ rating: n }); }
+
+  onFiles = (e) => {
+    const files = Array.from(e.target.files || []);
+    const added = files.map(f => ({ name: f.name, file: f, url: URL.createObjectURL(f) }));
+    this.setState(s => ({ photos: s.photos.concat(added) }));
+    e.target.value = "";
+  };
+
+  removePhoto(i) {
+    this.setState(s => ({ photos: s.photos.filter((_, k) => k !== i) }));
+  }
+
+  onSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const fd = new FormData();
+    ["name", "town", "review"].forEach(k => fd.append(k, form.elements[k].value));
+    fd.append("rating", String(this.state.rating));
+    this.state.photos.forEach((p, i) => { if (p.file) fd.append("photo" + (i + 1), p.file, p.name); });
+
+    // Set the endpoint prop (e.g. a Formspree form URL) to deliver submissions.
+    const endpoint = this.props.formEndpoint;
+    if (!endpoint) {
+      console.warn("Review form has no formEndpoint set — submission was not sent.", fd);
+      this.setState({ submitted: true });
+      return;
+    }
+    this.setState({ sending: true, error: "" });
+    try {
+      const res = await fetch(endpoint, { method: "POST", body: fd, headers: { Accept: "application/json" } });
+      if (!res.ok) throw new Error("Request failed: " + res.status);
+      this.setState({ sending: false, submitted: true });
+    } catch (err) {
+      this.setState({ sending: false, error: "We could not send your review. Please try again, or email us at angellogan0987@gmail.com." });
+    }
+  };
+
+  renderVals() {
+    const r = this.state.rating;
+    const labels = ["", "Poor", "Fair", "Good", "Very good", "Excellent"];
+    return {
+      submitted: this.state.submitted,
+      showForm: !this.state.submitted,
+      ratingLabel: labels[r] || "",
+      stars: [1, 2, 3, 4, 5].map(n => ({
+        color: n <= r ? "#E5A93C" : "#d6ddea",
+        label: n + " star" + (n > 1 ? "s" : ""),
+        onClick: () => this.setRating(n)
+      })),
+      photos: this.state.photos.map((p, i) => ({
+        name: p.name,
+        style: {
+          position: "relative", width: "92px", height: "92px", borderRadius: "8px",
+          border: "1px solid #d6ddea", backgroundImage: 'url("' + p.url + '")',
+          backgroundSize: "cover", backgroundPosition: "center"
+        },
+        onRemove: () => this.removePhoto(i)
+      })),
+      hasPhotos: this.state.photos.length > 0,
+      sending: this.state.sending,
+      error: this.state.error,
+      hasError: !!this.state.error,
+      submitLabel: this.state.sending ? "Sending…" : "Submit Review",
+      onFiles: this.onFiles,
+      onSubmit: this.onSubmit
+    };
+  }
+}
+</script>
+</body>
+</html>

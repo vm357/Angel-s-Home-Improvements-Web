@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="icon" type="image/png" href="site/favicon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Angel's Home Improvements">
+  <meta property="og:title" content="Interior Remodeling Services | Angel's Home Improvements">
+  <meta property="og:description" content="Kitchen and bathroom remodels, basement finishing, flooring, painting and trim work in Staten Island, NYC and New Jersey. Free consultation.">
+  <meta property="og:url" content="https://angelshomeimprovementsinc.com/interior-services">
+  <meta property="og:image" content="https://angelshomeimprovementsinc.com/site/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Walnut slat accent wall with integrated lighting, built by Angel's Home Improvements">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Interior Remodeling Services | Angel's Home Improvements">
+  <meta name="twitter:description" content="Kitchen and bathroom remodels, basement finishing, flooring, painting and trim work in Staten Island, NYC and New Jersey. Free consultation.">
+  <meta name="twitter:image" content="https://angelshomeimprovementsinc.com/site/og-image.jpg">
+  <link rel="apple-touch-icon" href="site/apple-touch-icon.png">
+  <title>Interior Remodeling Services | Angel's Home Improvements</title>
+  <link rel="canonical" href="https://angelshomeimprovementsinc.com/interior-services">
+  <meta name="description" content="Kitchen and bathroom remodels, basement finishing, flooring, painting and trim work in Staten Island, NYC and New Jersey. Free consultation.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site/style.css">
+  <link rel="stylesheet" href="site/upgrade.css?v=5">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    body { background: linear-gradient(180deg, #c7d8ff 0%, #E4EFF2 58%, #EDF6EC 100%); }
+    @keyframes isHeroIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+    .services-banner .banner-overlay > h1 { opacity: 0; animation: isHeroIn .9s cubic-bezier(.2,.7,.3,1) .08s forwards; }
+    .is-reveal { opacity: 0; transform: translateY(22px); transition: opacity .75s cubic-bezier(.2,.7,.3,1), transform .75s cubic-bezier(.2,.7,.3,1); }
+    .is-reveal.is-in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .services-banner .banner-overlay > h1 { opacity: 1; animation: none; }
+      .is-reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</helmet>
+
+<dc-import name="Site Header" variant="solid" hint-size="100%,140px"></dc-import>
+
+<div class="about-page interiorservices-page">
+  <section class="services-banner">
+    <div class="banner-overlay">
+      <h1>Interior Services</h1>
+    </div>
+  </section>
+
+  <section class="services-section">
+    <div class="service-row">
+      <div class="service-text">
+        <h2>Kitchen Remodeling</h2>
+        <h5><i>“Your Dream <strong>Kitchen</strong>. Finally Real.”</i></h5>
+        <p>
+          The kitchen isn't just a room, it's where life happens.
+          From morning coffee to family dinners that turn into late-night conversations,
+          it's the heart of your home.
+          <br><br>
+          If your kitchen feels outdated or cramped, it affects how you live every day.
+          A well-designed remodel changes everything: more space, better flow, and finishes you're proud of.
+          <br><br>
+          This isn't just an upgrade, it's a transformation.
+          A modern kitchen improves your daily life and adds real value to your home.
+          <br><br>
+          Our goal is simple: create a kitchen that looks incredible, works perfectly, and feels like yours.
+          <br><br>
+          Start your kitchen remodel today and build a space you'll love for years.
+        </p>
+      </div>
+      <div class="service-image">
+        <img src="site/sevkitchen.png" alt="Kitchen Service">
+      </div>
+    </div>
+
+    <div class="service-row reverse">
+      <div class="service-text reverse">
+        <h2>Bathroom Renovation</h2>
+        <h5><i>“A Better <strong>Bathroom</strong> Changes More Than You Think.”</i></h5>
+        <p>
+          Your bathroom is one of the most used spaces in your home, yet often the most overlooked.
+          It's where your day begins and ends, where you get ready, unwind, and reset.
+          <br><br>
+          If your bathroom feels outdated or cramped, or you're ready to add another, the right design changes everything.
+          Imagine a clean, modern space with a comfortable walk-in shower and finishes that feel fresh and elevated.
+          This isn't just an upgrade, it's a better way to live every day.
+          <br><br>
+          A professionally remodeled bathroom brings comfort, convenience, and a sense of calm into your routine.
+          Mornings feel smoother, and your space becomes somewhere you actually enjoy spending time.
+          <br><br>
+          It's also one of the smartest investments you can make, adding real value, equity, and long-term appeal to your home.
+          <br><br>
+          Upgrade your bathroom. Upgrade your everyday.
+        </p>
+      </div>
+      <div class="service-image reverse">
+        <img src="site/sevbathroom.png" alt="Bathroom Service">
+      </div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-text">
+        <h2>Basements</h2>
+        <h5><i>“Unlock the Full Potential of Your <strong>Basement</strong>.”</i></h5>
+        <p>
+          Most basements start as storage and stay that way.
+          But they hold more untapped potential than any other space in your home.
+          <br><br>
+          What's dark, unfinished, or underused today can become exactly what you need tomorrow.
+          A place to relax. A place to work. An area for family, guests, or entertainment.
+          <br><br>
+          Whether it's a home theater, gym, office, guest suite, or a comfortable living area,
+          a finished basement lets you expand your home without the cost of an addition.
+          <br><br>
+          It's not just about adding space, it's about creating room for how you actually live.
+          You gain usable square footage, everyday functionality, and real value.
+          <br><br>
+          Make the most of the space you already have.
+        </p>
+      </div>
+      <div class="service-image">
+        <img src="site/sevbasement.png" alt="Basement Service">
+      </div>
+    </div>
+
+    <div class="service-row reverse">
+      <div class="service-text reverse">
+        <h2>Painting</h2>
+        <h5><i>“A <strong>Fresh</strong> Coat of Paint Makes Your Home Feel New Again.”</i></h5>
+        <p>
+          Sometimes, it's not the layout or the space, it's how it feels.
+          Faded colors, scuffed walls, and outdated tones can make your home feel tired, even if everything else is right.
+          <br><br>
+          A professional paint job changes that instantly. Clean lines. Smooth finishes.
+          Colors that actually reflect your style. What once felt worn or outdated become bright, refreshed, and completely different.
+          <br><br>
+          It's one of the simplest ways to improve your home, but one of the most noticeable.
+          You'll see it everyday. And more importantly, you'll feel the difference every time you walk into the room.
+          <br><br>
+          Refresh your space without the stress of a full renovation.
+        </p>
+      </div>
+      <div class="service-image reverse">
+        <img src="site/sevpainting.png" alt="Painting Service">
+      </div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-text">
+        <h2>Flooring</h2>
+        <h5><i>“Beautiful <strong>Floors</strong> That Hold Up to Real Life.”</i></h5>
+        <p>
+          Floors do more than cover your home, they set the tone for every room.
+          Scratches, stains, and outdated materials can make even a well-designed space feel worn.
+          <br><br>
+          New flooring changes that instantly, bringing clean, durable surfaces and a cohesive, modern look that stands up to everyday life.
+          <br><br>
+          It's an upgrade you notice right away and appreciate every day.
+          <br><br>
+          Beyond appearance, quality flooring adds lasting durability and real value, making it a smart investment for both comfort and resale.
+          <br><br>
+          Upgrade your floors and transform your entire space.
+        </p>
+      </div>
+      <div class="service-image">
+        <img src="site/sevflooring.png" alt="Flooring Service">
+      </div>
+    </div>
+
+    <div class="service-row reverse">
+      <div class="service-text reverse">
+        <h2>Lighting</h2>
+        <h5><i>“<strong>Lighting</strong> That Brightens Your Everyday.”</i></h5>
+        <p>
+          Lighting does more than brighten a room—it defines how it feels.
+          Poor lighting can make even a beautiful space feel dull or closed in, while the right lighting transforms it instantly.
+          <br><br>
+          Thoughtfully placed fixtures can open up a room, highlight what matters, and create a space that feels both comfortable and functional.
+          From soft ambient glow to focused task lighting and modern statement pieces, the right balance brings clarity and warmth to your home.
+          <br><br>
+          It's one of the simplest upgrades with one of the biggest impacts—no major construction, just immediate results.
+          <br><br>
+          Beyond looks, updated lighting improves visibility, energy efficiency, and overall home value.
+          <br><br>
+          See your home the way it was meant to be seen.
+        </p>
+      </div>
+      <div class="service-image reverse">
+        <img src="site/sevlighting.png" alt="Lighting Service">
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 24px 24px 88px; display: flex; justify-content: center">
+    <div class="cta-band" style="width: 100%; max-width: 1000px; background: linear-gradient(135deg, #1A2130 0%, #2C3A55 100%); border-radius: 16px; padding: 56px 40px; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; color: #fff">
+      <h2 style="margin: 0; font-family: 'Canela', serif; font-weight: 300; font-size: clamp(1.9rem, 3.2vw, 2.6rem); letter-spacing: .5px">Ready to start your interior project?</h2>
+      <p style="margin: 0; max-width: 560px; font-family: 'Sora', sans-serif; font-size: 1rem; line-height: 1.7; opacity: .88">Tell us what you have in mind and we'll get back to you with a free consultation.</p>
+      <a href="contact.dc.html#quote" style="margin-top: 8px; display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 34px; border-radius: 999px; background: #fff; color: #1A2130; font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: .02em; text-decoration: none; transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease" style-hover="transform: translateY(-3px) scale(1.03); box-shadow: 0 14px 28px rgba(0,0,0,.28)">Request a Free Estimate</a>
+    </div>
+  </section>
+</div>
+
+<dc-import name="Site Footer" hint-size="100%,420px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const targets = [];
+    document.querySelectorAll('.services-section .service-row').forEach(row => {
+      const text = row.querySelector('.service-text');
+      const media = row.querySelector('.service-img, .service-media, img');
+      if (text) targets.push(text);
+      if (media) targets.push(media);
+    });
+    document.querySelectorAll('.interiorservices-page > section:last-of-type > div').forEach(el => targets.push(el));
+    targets.forEach((el, i) => {
+      el.classList.add('is-reveal');
+      el.style.transitionDelay = ((i % 2) * 120) + 'ms';
+    });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0 });
+    targets.forEach(el => io.observe(el));
+    const sweep = () => {
+      const h = window.innerHeight || document.documentElement.clientHeight;
+      targets.forEach(el => {
+        if (el.classList.contains('is-in')) return;
+        if (el.getBoundingClientRect().top < h * 0.92) { el.classList.add('is-in'); io.unobserve(el); }
+      });
+    };
+    sweep();
+    requestAnimationFrame(sweep);
+    ['scroll', 'resize'].forEach(evt => {
+      window.addEventListener(evt, sweep, { passive: true });
+      document.body.addEventListener(evt, sweep, { passive: true });
+    });
+  }
+}
+</script>
+</body>
+</html>

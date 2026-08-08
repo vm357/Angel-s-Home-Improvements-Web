@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="icon" type="image/png" href="site/favicon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Angel's Home Improvements">
+  <meta property="og:title" content="Angel's Home Improvements | Remodeling Contractor in Staten Island, NY">
+  <meta property="og:description" content="Family-run remodeling contractor serving Staten Island, NYC and New Jersey. Kitchens, baths, basements, decks and full exteriors. Licensed & insured. Free estimates.">
+  <meta property="og:url" content="https://angelshomeimprovementsinc.com/">
+  <meta property="og:image" content="https://angelshomeimprovementsinc.com/site/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Walnut slat accent wall with integrated lighting, built by Angel's Home Improvements">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Angel's Home Improvements | Remodeling Contractor in Staten Island, NY">
+  <meta name="twitter:description" content="Family-run remodeling contractor serving Staten Island, NYC and New Jersey. Kitchens, baths, basements, decks and full exteriors. Licensed & insured. Free estimates.">
+  <meta name="twitter:image" content="https://angelshomeimprovementsinc.com/site/og-image.jpg">
+  <link rel="apple-touch-icon" href="site/apple-touch-icon.png">
+  <title>Angel's Home Improvements | Remodeling Contractor in Staten Island, NY</title>
+  <link rel="canonical" href="https://angelshomeimprovementsinc.com/">
+  <meta name="description" content="Family-run remodeling contractor serving Staten Island, NYC and New Jersey. Kitchens, baths, basements, decks and full exteriors. Licensed & insured. Free estimates.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="site/style.css">
+  <link rel="stylesheet" href="site/upgrade.css?v=5">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <style>
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.2,.7,.3,1), transform .8s cubic-bezier(.2,.7,.3,1); will-change: opacity, transform; }
+    .reveal.is-in { opacity: 1; transform: none; }
+    .ba-section .reveal { transform: scale(.94); transition-duration: 1s; }
+    .services-strip .service-item { transition: transform .35s cubic-bezier(.2,.7,.3,1); }
+    .services-strip .service-item:hover { transform: translateY(-6px); }
+    .services-strip .service-item img, .services-strip .service-item i { transition: transform .35s cubic-bezier(.2,.7,.3,1); }
+    .services-strip .service-item:hover img, .services-strip .service-item:hover i { transform: scale(1.08); }
+    .trust-item i { transition: transform .35s cubic-bezier(.2,.7,.3,1); }
+    .trust-item:hover i { transform: translateY(-3px) scale(1.1); }
+    .video-card { transition: transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s ease; }
+    .video-card:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(20,26,38,.28); }
+    .review-card { transition: transform .35s cubic-bezier(.2,.7,.3,1); }
+    .review-card:hover { transform: translateY(-4px); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</helmet>
+
+<dc-import name="Site Header" variant="transparent" hint-size="100%,140px"></dc-import>
+
+<section class="hero">
+  <div class="swiper hero-slider">
+    <div class="hero-content">
+      <h1 class="hero-title"><span>Bring Your Visions to Life</span></h1>
+    </div>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="background-image: url('site/hero-kitchen-white.png')"><div class="overlay"></div></div>
+      <div class="swiper-slide" style="background-image: url('site/hero-deck.png')"><div class="overlay"></div></div>
+      <div class="swiper-slide" style="background-image: url('site/hero-kitchen-gray.png')"><div class="overlay"></div></div>
+      <div class="swiper-slide" style="background-image: url('site/hero-slat-wall.png')"><div class="overlay"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-bar">
+  <div class="trust-grid">
+    <div class="trust-item">
+      <i class="fa-solid fa-shield-halved"></i>
+      <span class="trust-label">Licensed &amp; Insured<span class="trust-sub">License # 2110600-DCA</span></span>
+    </div>
+    <div class="trust-item">
+      <i class="fa-solid fa-users"></i>
+      <span class="trust-label">Complimentary Warranty<br><span class="trust-sub">Confidence Built In</span></span>
+    </div>
+    <div class="trust-item">
+      <i class="fa-solid fa-comments"></i>
+      <span class="trust-label">Free Consultations<span class="trust-sub">No obligation</span></span>
+    </div>
+    <div class="trust-item">
+      <i class="fa-solid fa-house-chimney"></i>
+      <span class="trust-label">Interior &amp; Exterior<span class="trust-sub">One crew, whole project</span></span>
+    </div>
+  </div>
+</section>
+
+<section class="what-we-do py-4">
+  <div class="container-fluid">
+    <h2 class="text-center mb-5">What We Do</h2>
+    <div class="row text-center services-strip">
+      <div class="col service-item">
+        <svg class="service-icon" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2.9 11.4h18.2a.7.7 0 0 1 .7.7v.5a.7.7 0 0 1-.7.7H2.9a.7.7 0 0 1-.7-.7v-.5a.7.7 0 0 1 .7-.7Z"></path>
+          <path d="M3.9 13.3c.3 2.8 1.1 4.4 2.7 4.4h10.8c1.6 0 2.4-1.6 2.7-4.4"></path>
+          <path d="M6.4 17.7c-.2 1-.7 1.6-1.5 1.8.9.4 1.8-.1 2.1-1.1M17.6 17.7c.2 1 .7 1.6 1.5 1.8-.9.4-1.8-.1-2.1-1.1"></path>
+          <path d="M5.3 11.4V8.1a1.6 1.6 0 0 1 1.6-1.6h1.2a1.1 1.1 0 0 1 1.1 1.1v1.3"></path>
+          <path d="M4.3 8.5h2"></path>
+          <path d="M8.4 11.4a1.2 1.2 0 0 1 2.2-.6 1.4 1.4 0 0 1 2.4-.4 1.2 1.2 0 0 1 2.1.3 1.1 1.1 0 0 1 1.9.7"></path>
+          <circle cx="17.4" cy="7.6" r=".85"></circle>
+          <circle cx="19.5" cy="8.9" r=".6"></circle>
+          <circle cx="18.9" cy="5.7" r=".5"></circle>
+        </svg>
+        <h6>Bathrooms</h6>
+      </div>
+      <div class="col service-item divider">
+        <svg class="service-icon" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6.5 3.2h2.3v2.4H6.5z"></path>
+          <path d="M2.4 9.5 5.3 5.6h4.7l2.9 3.9z"></path>
+          <path d="M15.5 3.2h6.1v17.4h-6.1z"></path>
+          <path d="M15.5 12.9h6.1"></path>
+          <path d="M17.3 8.3v2.2M17.3 14.9v2.2"></path>
+          <path d="M2.4 12.1h13.1v8.5H2.4z"></path>
+          <path d="M8.6 12.1v8.5"></path>
+          <path d="M8.6 16.4h6.9"></path>
+          <path d="M11.1 14.1h2M11.1 18.4h2"></path>
+          <path d="M3.6 15.4h4.2v3.8H3.6z"></path>
+          <circle cx="3.9" cy="13.7" r=".35"></circle>
+          <circle cx="5.1" cy="13.7" r=".35"></circle>
+          <circle cx="6.3" cy="13.7" r=".35"></circle>
+          <circle cx="7.5" cy="13.7" r=".35"></circle>
+        </svg>
+        <h6>Kitchens</h6>
+      </div>
+      <div class="col service-item divider">
+        <i class="fa-solid fa-paint-roller service-icon"></i>
+        <h6>Painting</h6>
+      </div>
+      <div class="col service-item divider">
+        <svg class="service-icon" viewBox="0 0 24 24" width="40" height="40" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" aria-hidden="true">
+          <path d="M12 1.3a1 1 0 0 1 .58.19l10.4 7.5a.95.95 0 0 1-.56 1.72H21.2v11.05a.95.95 0 0 1-.95.95H3.75a.95.95 0 0 1-.95-.95V10.71H1.58a.95.95 0 0 1-.56-1.72l10.4-7.5A1 1 0 0 1 12 1.3ZM7.3 9.6h3.5v3.3H7.3V9.6Zm5.9 0h3.5v3.3h-3.5V9.6Zm5.4 5.6H5.4v5.5h13.2v-5.5Z"></path>
+          <path d="M5.4 15.2h2.7v1.75h2.4v1.75h2.4v1.95H5.4v-5.45Z"></path>
+        </svg>
+        <h6>Basements</h6>
+      </div>
+      <div class="col service-item divider">
+        <svg class="service-icon" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2.6 4.6h18.8"></path>
+          <path d="M2.6 6.4h18.8"></path>
+          <path d="M5.4 6.4h10.8L13 9.8H8.2z"></path>
+          <path d="M16.2 6.4v6.8M11.4 10.6h4.8M11.4 10.6v2.6M11.4 13.2h4.8"></path>
+          <path d="M2.6 20v-7.6l3.8-2v7.8"></path>
+          <path d="M6.6 14.6a3 3.2 0 0 1 6 0z"></path>
+          <path d="M9.6 11.4v3.2M7.9 11.9l1 2.7M11.3 11.9l-1 2.7"></path>
+          <path d="M6.4 14.6h6.4M7.4 14.6l-.8 3.8M11.8 14.6l.8 3.8M7.1 16.6h4.6"></path>
+          <path d="M13.6 15.4H17M14 15.4l-.4 3M16.6 15.4l.4 3M15.3 15.4v3"></path>
+          <path d="M17.8 16.4h3.4l-.4 3h-2.6z"></path>
+          <path d="M19.5 16.4v-4"></path>
+          <path d="M19.5 14.6c-1.5-.2-2.1-1.4-1.9-2.7 1.3.2 1.9 1.3 1.9 2.7ZM19.5 14.6c1.5-.2 2.1-1.4 1.9-2.7-1.3.2-1.9 1.3-1.9 2.7ZM19.5 13c.6-1.2.6-2.4 0-3.4-.6 1-.6 2.2 0 3.4Z"></path>
+        </svg>
+        <h6>Outdoor Living</h6>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ba-section" style="background: #EDF6EC">
+  <div class="ba-head">
+    <h2>Before &amp; After</h2>
+    <p>Drag to reveal</p>
+  </div>
+  <div class="ba-grid-2">
+    <div>
+      <figure class="ba">
+        <img class="ba-after" src="site/after1.png" alt="After renovation">
+        <img class="ba-before" src="site/before1.png" alt="Before renovation">
+        <span class="ba-tag ba-tag-before">Before</span>
+        <span class="ba-tag ba-tag-after">After</span>
+        <input class="ba-range" type="range" min="0" max="100" value="50" step="0.1" aria-label="Reveal the after photo">
+        <div class="ba-divider">
+          <div class="ba-handle"><i class="fa-solid fa-chevron-left"></i><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </figure>
+    </div>
+    <div>
+      <figure class="ba">
+        <img class="ba-after" src="site/after2.png" alt="After renovation">
+        <img class="ba-before" src="site/before2.png" alt="Before renovation">
+        <span class="ba-tag ba-tag-before">Before</span>
+        <span class="ba-tag ba-tag-after">After</span>
+        <input class="ba-range" type="range" min="0" max="100" value="50" step="0.1" aria-label="Reveal the after photo">
+        <div class="ba-divider">
+          <div class="ba-handle"><i class="fa-solid fa-chevron-left"></i><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </figure>
+    </div>
+  </div>
+  <div class="ba-hint" style="margin-top: 28px">
+    <a href="our-work.dc.html" style="color: #1A2130; text-decoration: none; border-bottom: 1px solid #83B4FF; padding-bottom: 3px">See all of our work</a>
+  </div>
+</section>
+
+<section class="social-section py-5">
+  <div class="container text-center">
+    <h2 class="mb-3 text-white">How We Get It Done</h2>
+    <div class="row align-items-center justify-content-center">
+      <div class="col-md-4">
+        <a href="https://www.tiktok.com/@angelshomeimprovement/video/7351801881229905195" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; cursor: pointer">
+          <div class="video-card">
+            <video src="site/Download.mp4" autoplay="" muted="" loop="" playsinline="" disablepictureinpicture="" controlsList="nodownload" style="pointer-events: none"></video>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 text-center my-4 my-md-0">
+        <p class="text-light mb-3">Follow us for real transformations, behind-the-scenes, and project highlights.</p>
+        <div>
+          <a href="https://www.instagram.com/angelshomeimprovent2022/?hl=en" class="social-link mx-2"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@angelshomeimprovement" class="social-link mx-2"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <a href="https://www.tiktok.com/@angelshomeimprovement/video/7437710109301656875" target="_blank" rel="noopener noreferrer" style="display: block; text-decoration: none; cursor: pointer">
+          <div class="video-card">
+            <video src="site/result.mp4" autoplay="" muted="" loop="" playsinline="" disablepictureinpicture="" controlsList="nodownload" style="pointer-events: none"></video>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews-strip">
+  <div class="ba-head">
+    <h2>What Our Clients Say</h2>
+    <p>Reviews from homeowners in NY &amp; NJ</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card is-sample">
+      <div class="review-stars">★★★★★</div>
+      <blockquote>Two to four sentences from the client, in their own words — the problem they had, what the crew did, and how the space works now.</blockquote>
+      <div class="review-meta">Client name — Town, NY</div>
+    </div>
+    <div class="review-card is-sample">
+      <div class="review-stars">★★★★★</div>
+      <blockquote>Reviews that mention timeline and daily cleanup convert better than ones that only say "great job".</blockquote>
+      <div class="review-meta">Client name — Town, NJ</div>
+    </div>
+    <div class="review-card is-sample">
+      <div class="review-stars">★★★★★</div>
+      <blockquote>A line about communication during the project reassures homeowners more than praise for the finished photos.</blockquote>
+      <div class="review-meta">Client name — Town, NY</div>
+    </div>
+  </div>
+  <div class="ba-hint" style="margin-top: 34px">
+    <a href="reviews.dc.html" style="color: #1A2130; text-decoration: none; border-bottom: 1px solid #83B4FF; padding-bottom: 3px">Read more reviews</a>
+  </div>
+</section>
+
+<section id="quote" class="lead-section py-5">
+  <div class="container">
+    <div class="lead-card">
+      <h3 class="text-center mb-4">Get a Free Quote</h3>
+      <p class="text-center text-muted mb-4"><i>Tell us what you're looking for and we'll get back to you quickly.</i></p>
+      <form action="https://formspree.io/f/YOUR_ID" method="POST" enctype="multipart/form-data">
+        <div class="row mb-3">
+          <div class="col-md-6"><input type="text" class="form-control" name="First Name" placeholder="First Name"></div>
+          <div class="col-md-6"><input type="text" class="form-control" name="Last Name" placeholder="Last Name"></div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6"><input type="text" class="form-control" name="Phone Number" placeholder="Phone Number"></div>
+          <div class="col-md-6"><input type="email" class="form-control" name="Email" placeholder="Email"></div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-semibold">What services are you looking for?</label>
+          <div class="row">
+            <div class="col-md-4"><div class="form-check">
+              <input class="form-check-input" type="checkbox" id="bathrooms" name="Services[]" value="Bathrooms">
+              <label class="form-check-label" for="bathrooms">Bathrooms</label>
+            </div></div>
+            <div class="col-md-4"><div class="form-check">
+              <input class="form-check-input" type="checkbox" id="kitchens" name="Services[]" value="Kitchens">
+              <label class="form-check-label" for="kitchens">Kitchens</label>
+            </div></div>
+            <div class="col-md-4"><div class="form-check">
+              <input class="form-check-input" type="checkbox" id="basements" name="Services[]" value="Basements">
+              <label class="form-check-label" for="basements">Basements</label>
+            </div></div>
+            <div class="col-md-4"><div class="form-check">
+              <input class="form-check-input" type="checkbox" id="painting" name="Services[]" value="Painting">
+              <label class="form-check-label" for="painting">Painting</label>
+            </div></div>
+            <div class="col-md-4"><div class="form-check">
+              <input class="form-check-input" type="checkbox" id="decks" name="Services[]" value="Outdoor Living">
+              <label class="form-check-label" for="decks">Outdoor Living</label>
+            </div></div>
+            <div class="col-md-4"><div class="form-check">
+              <input class="form-check-input" type="checkbox" id="other" name="Services" value="Other">
+              <label class="form-check-label" for="other">Other</label>
+            </div></div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="form-label fw-semibold">Tell us about your project</label>
+          <textarea class="form-control" name="Describe your project" rows="4" placeholder="Describe your project..."></textarea>
+        </div>
+        <div class="mb-4">
+          <label class="form-label fw-semibold">How did you hear about us?</label>
+          <textarea class="form-control" name="How did you hear about us?" rows="2" placeholder="Describe how you heard about us (e.g., social media, referral, search engine..)"></textarea>
+        </div>
+        <div class="mb-4">
+          <label class="form-label fw-semibold">Upload a photo (optional)</label>
+          <p class="small text-muted">You can also text us photos after submitting your request.</p>
+          <input type="file" class="form-control" name="photo" accept="image/*">
+        </div>
+        <div class="text-center">
+          <button class="btn btn-dark px-4">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<dc-import name="Site Footer" hint-size="100%,420px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const start = () => {
+      if (!window.Swiper || !window.gsap) return setTimeout(start, 120);
+      new window.Swiper('.hero-slider', {
+        loop: true,
+        autoplay: { delay: 6000, disableOnInteraction: false },
+        speed: 1200,
+        effect: 'fade',
+        fadeEffect: { crossFade: true }
+      });
+      window.gsap.timeline().to('.hero-title span', {
+        opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.2, stagger: 0.25, ease: 'power3.out'
+      });
+    };
+    start();
+
+    // Scroll reveal
+    const targets = [];
+    const push = sel => document.querySelectorAll(sel).forEach(el => targets.push(el));
+    push('.trust-bar .trust-item');
+    push('.what-we-do h2');
+    push('.services-strip > *');
+    push('.ba-section .ba-head');
+    push('.ba-section .ba-grid-2 > div');
+    push('.social-section h2');
+    push('.social-section .video-card');
+    push('.reviews-strip .ba-head');
+    push('.reviews-strip .review-card');
+    push('.lead-section .lead-card');
+    targets.forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = ((i % 4) * 90) + 'ms';
+    });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { root: document.body.scrollHeight > document.body.clientHeight ? document.body : null, threshold: 0 });
+    targets.forEach(el => io.observe(el));
+
+    // Fail-safe: anything already on screen must never stay hidden
+    const sweep = () => {
+      const h = window.innerHeight || document.documentElement.clientHeight;
+      targets.forEach(el => {
+        if (el.classList.contains('is-in')) return;
+        const r = el.getBoundingClientRect();
+        if (r.top < h * 0.92) { el.classList.add('is-in'); io.unobserve(el); }
+      });
+    };
+    sweep();
+    requestAnimationFrame(sweep);
+    ['scroll', 'resize'].forEach(evt => {
+      window.addEventListener(evt, sweep, { passive: true });
+      document.body.addEventListener(evt, sweep, { passive: true });
+    });
+    window.addEventListener('load', sweep);
+    sweep();
+    requestAnimationFrame(sweep);
+
+    document.querySelectorAll('.ba').forEach(ba => {
+      const range = ba.querySelector('.ba-range');
+      if (!range) return;
+      const set = () => ba.style.setProperty('--pos', range.value + '%');
+      range.addEventListener('input', set);
+      ['pointerdown', 'touchstart'].forEach(e =>
+        range.addEventListener(e, () => ba.classList.add('is-dragging')));
+      ['pointerup', 'pointercancel', 'touchend', 'blur'].forEach(e =>
+        range.addEventListener(e, () => ba.classList.remove('is-dragging')));
+      set();
+    });
+
+    // TikTok clips: autoplay muted loop playsinline (muted must be set as a property)
+    document.querySelectorAll('.video-card video').forEach(v => {
+      v.loop = true;
+      v.muted = true;
+      v.defaultMuted = true;
+      v.volume = 0;
+      v.removeAttribute('controls');
+      v.loop = true;
+      v.autoplay = true;
+      v.playsInline = true;
+      v.setAttribute('playsinline', '');
+      const go = () => v.play().catch(() => {});
+      go();
+      v.addEventListener('loadeddata', go, { once: true });
+    });
+  }
+}
+</script>
+</body>
+</html>
