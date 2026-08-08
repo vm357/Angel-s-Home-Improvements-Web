@@ -1,6 +1,11 @@
 {
   "photos": [
     {
+      "image": "site/uploads/fence-gate-1024x680-1.jpg",
+      "caption": "Privacy fence",
+      "category": "Outdoor"
+    },
+    {
       "id": "g-kit-2",
       "image": "site/gallery/g-kit-2.webp",
       "caption": "Full Kitchen Redesign",
