@@ -1,19 +1,29 @@
-Three files changed since the last zip. Copy them into your repo:
+Updated since your last push. Copy each file to the same path in the repo,
+overwriting what is there.
 
-1. Site Header.dc.html   -> repo root (overwrite)
-      Adds the invite-link forwarder. This is the fix for the
-      invite email dropping you on the homepage.
+  index.dc.html                 section swap + slider drag fix
+  our-work.dc.html              slider drag fix, CTA classes
+  interior-services.dc.html     CTA class
+  exterior-services.dc.html     CTA class
+  project-gallery.dc.html       "Add or replace photos" button removed
+  Site Footer.dc.html           Gallery link, new stacked logo
+  site/upgrade.css              all the mobile fixes
+  site/upgrade.js               slider rewrite (see note 3)
 
-2. ADMIN-SETUP.md        -> repo root (overwrite)
-      Added a "Test it yourself first" section.
+  site/footer-logo-stacked.png  NEW FILE - the stacked footer logo
 
-3. gitignore.txt         -> repo root, RENAMED to  .gitignore  (overwrite)
-      Was "uploads/", now "/uploads/". The old version also matched
-      site/uploads/, which is where the CMS puts published photos --
-      every photo Angel published would have been silently dropped.
-      Renaming matters: a file literally named "gitignore.txt" does
-      nothing. It must start with a dot and have no extension.
+ONE DELETION:
+  .image-slots.state.json   -> delete this file from the repo
+Copying files over will not remove it. It held the gallery photos before
+they became real files in site/gallery/; leaving it costs 1.2 MB and does
+nothing. Nothing breaks if you forget, it is just dead weight.
 
-Nothing else changed. Push, wait for the deploy to finish, then click
-your invite link again. If it has already been used, delete yourself
-under Identity -> Users and re-invite.
+Notes
+1. Everything here is a fix to the ten mobile/desktop items, plus the
+   footer logo. No content changed.
+2. The .gitignore from the previous zip must already be in place. If you
+   skipped it, photos published through /admin get dropped on commit.
+3. site/upgrade.js is not actually loaded by any page -- each page carries
+   its own copy of the slider code inline. I fixed both. upgrade.js is
+   updated to match so the two do not drift, but it changes nothing on
+   its own.

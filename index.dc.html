@@ -226,33 +226,6 @@
   </div>
 </section>
 
-<section class="reviews-strip">
-  <div class="ba-head">
-    <h2>What Our Clients Say</h2>
-    <p>Reviews from homeowners in NY &amp; NJ</p>
-  </div>
-  <div class="reviews-grid">
-    <div class="review-card is-sample">
-      <div class="review-stars">★★★★★</div>
-      <blockquote>Two to four sentences from the client, in their own words — the problem they had, what the crew did, and how the space works now.</blockquote>
-      <div class="review-meta">Client name — Town, NY</div>
-    </div>
-    <div class="review-card is-sample">
-      <div class="review-stars">★★★★★</div>
-      <blockquote>Reviews that mention timeline and daily cleanup convert better than ones that only say "great job".</blockquote>
-      <div class="review-meta">Client name — Town, NJ</div>
-    </div>
-    <div class="review-card is-sample">
-      <div class="review-stars">★★★★★</div>
-      <blockquote>A line about communication during the project reassures homeowners more than praise for the finished photos.</blockquote>
-      <div class="review-meta">Client name — Town, NY</div>
-    </div>
-  </div>
-  <div class="ba-hint" style="margin-top: 34px">
-    <a href="reviews.dc.html" style="color: #1A2130; text-decoration: none; border-bottom: 1px solid #83B4FF; padding-bottom: 3px">Read more reviews</a>
-  </div>
-</section>
-
 <section id="quote" class="lead-section py-5">
   <div class="container">
     <div class="lead-card">
@@ -314,6 +287,33 @@
         </div>
       </form>
     </div>
+  </div>
+</section>
+
+<section class="reviews-strip">
+  <div class="ba-head">
+    <h2>What Our Clients Say</h2>
+    <p>Reviews from homeowners in NY &amp; NJ</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card is-sample">
+      <div class="review-stars">★★★★★</div>
+      <blockquote>Two to four sentences from the client, in their own words — the problem they had, what the crew did, and how the space works now.</blockquote>
+      <div class="review-meta">Client name — Town, NY</div>
+    </div>
+    <div class="review-card is-sample">
+      <div class="review-stars">★★★★★</div>
+      <blockquote>Reviews that mention timeline and daily cleanup convert better than ones that only say "great job".</blockquote>
+      <div class="review-meta">Client name — Town, NJ</div>
+    </div>
+    <div class="review-card is-sample">
+      <div class="review-stars">★★★★★</div>
+      <blockquote>A line about communication during the project reassures homeowners more than praise for the finished photos.</blockquote>
+      <div class="review-meta">Client name — Town, NY</div>
+    </div>
+  </div>
+  <div class="ba-hint" style="margin-top: 34px">
+    <a href="reviews.dc.html" style="color: #1A2130; text-decoration: none; border-bottom: 1px solid #83B4FF; padding-bottom: 3px">Read more reviews</a>
   </div>
 </section>
 
@@ -385,10 +385,48 @@ class Component extends DCLogic {
       if (!range) return;
       const set = () => ba.style.setProperty('--pos', range.value + '%');
       range.addEventListener('input', set);
-      ['pointerdown', 'touchstart'].forEach(e =>
-        range.addEventListener(e, () => ba.classList.add('is-dragging')));
-      ['pointerup', 'pointercancel', 'touchend', 'blur'].forEach(e =>
-        range.addEventListener(e, () => ba.classList.remove('is-dragging')));
+      range.addEventListener('blur', () => ba.classList.remove('is-dragging'));
+
+      // A bare <input type=range> only follows a touch that STARTS on its
+      // thumb, so on a phone the drag felt dead unless you happened to grab
+      // the divider. Track the pointer on the figure instead.
+      let dragging = false, locked = false, sx = 0, sy = 0;
+      const apply = x => {
+        const r = ba.getBoundingClientRect();
+        if (!r.width) return;
+        range.value = Math.max(0, Math.min(100, ((x - r.left) / r.width) * 100));
+        set();
+      };
+      ba.addEventListener('pointerdown', e => {
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        dragging = true;
+        // mouse/pen commit at once; touch waits to see if this is a
+        // horizontal drag or a vertical page scroll
+        locked = e.pointerType !== 'touch';
+        sx = e.clientX; sy = e.clientY;
+        ba.classList.add('is-dragging');
+        if (locked) apply(e.clientX);
+      });
+      ba.addEventListener('pointermove', e => {
+        if (!dragging) return;
+        if (!locked) {
+          const dx = Math.abs(e.clientX - sx), dy = Math.abs(e.clientY - sy);
+          if (dx < 6 && dy < 6) return;
+          if (dy > dx) { dragging = false; ba.classList.remove('is-dragging'); return; }
+          locked = true;
+          try { ba.setPointerCapture(e.pointerId); } catch (err) {}
+        }
+        if (e.cancelable) e.preventDefault();
+        apply(e.clientX);
+      });
+      const end = e => {
+        if (!dragging) return;
+        if (!locked && e && typeof e.clientX === 'number') apply(e.clientX);
+        dragging = false; locked = false;
+        ba.classList.remove('is-dragging');
+      };
+      ['pointerup', 'pointercancel', 'pointerleave'].forEach(n =>
+        ba.addEventListener(n, end));
       set();
     });
 

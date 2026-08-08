@@ -347,6 +347,29 @@ nav.navbar.scrolled .nav-logo,
   .trust-item:nth-child(n + 3) {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
+  /* 'Complimentary Warranty' is the widest label and was running past the
+     right edge: give the column room to shrink and let the words wrap. */
+  .trust-item {
+    gap: 10px;
+    padding: 20px 12px;
+    justify-content: flex-start;
+  }
+  .trust-item i { font-size: 19px; }
+  .trust-item .trust-label {
+    min-width: 0;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    overflow-wrap: anywhere;
+  }
+  .trust-item .trust-sub { font-size: 0.66rem; }
+  /* the <br> after 'Complimentary Warranty' would force a third line */
+  .trust-item .trust-label br { display: none; }
+}
+
+@media (max-width: 430px) {
+  .trust-bar .trust-grid { grid-template-columns: 1fr; }
+  .trust-item { border-left: none; justify-content: center; }
+  .trust-item:nth-child(n + 2) { border-top: 1px solid rgba(255, 255, 255, 0.1); }
 }
 
 /* ---------------------------------------------------------
@@ -479,6 +502,10 @@ nav.navbar.scrolled .nav-logo,
 .ba:hover .ba-handle {
   transform: translate(-50%, -50%) scale(1.06);
 }
+
+/* pan-y lets the page still scroll vertically while upgrade.js claims
+   horizontal drags for the divider */
+.ba { touch-action: pan-y; }
 
 /* the range input IS the drag surface: click-to-jump, drag anywhere,
    arrow-key support and touch all come for free */
@@ -682,7 +709,9 @@ nav.navbar.scrolled .nav-logo,
 }
 
 .footer-v2 .footer-logo {
-  height: 132px;
+  /* the mark sits above the wordmark, so the artwork is taller than it was
+     — this height keeps the wordmark itself at its previous size */
+  height: 102px;
   width: auto;
   display: block;
   /* the artwork has ~19% transparent padding on its left edge; the negative
@@ -911,9 +940,16 @@ nav.navbar.scrolled .nav-logo,
     align-items: center;
     justify-content: center;
     box-shadow: none !important;
-    --burger: #fff;
+    /* Dark by default: a solid header renders its class from JS, so any
+       white-first default leaves the burger invisible until that resolves. */
+    --burger: #1A2130;
   }
   .navbar-toggler:focus { outline: none; box-shadow: none !important; }
+  /* Only a transparent header over the hero gets white lines, and only
+     until the page scrolls under it. */
+  .transparent-header .navbar-toggler,
+  .transparent-header.navbar .navbar-toggler { --burger: #fff; }
+  .transparent-header.scrolled .navbar-toggler,
   .scrolled .navbar-toggler,
   .solid-header .navbar-toggler,
   .about-page .navbar-toggler,
@@ -1094,9 +1130,17 @@ nav.navbar.scrolled .nav-logo,
     font-size: 1.55rem !important;
     line-height: 1.25;
   }
-  .cta-band a {
+  /* the primary button only — a secondary text link stretched to 320px
+     reads as off-centre because its icon+label sit at the left edge */
+  .cta-band a.cta-solid {
     width: 100%;
     max-width: 320px;
+  }
+  .cta-band a.cta-note {
+    width: auto;
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
   }
 
   /* project gallery: 290px min column overflows a 320-360px screen */
@@ -1123,7 +1167,7 @@ nav.navbar.scrolled .nav-logo,
   .ba-head h2 { font-size: 1.9rem; }
 
   /* review + quote forms: 30px inner padding is too much at 360px */
-  .reviews-cta form,
+  .tiktok-box form,
   .about-form-card { padding: 22px 18px !important; }
   .rv-field input,
   .rv-field textarea,
@@ -1133,4 +1177,65 @@ nav.navbar.scrolled .nav-logo,
 
   /* contact info grid: two 50% cells squeeze the license line */
   .info-grid > [class*="col-"] { flex: 0 0 100%; max-width: 100%; }
+}
+
+
+/* ---------------------------------------------------------
+   9. MOBILE CORRECTIONS
+--------------------------------------------------------- */
+
+/* CTA bands: these anchors are buttons, never underlined links */
+.cta-band a { text-decoration: none !important; }
+.cta-band a.cta-note { align-self: center; }
+
+/* review + quote forms: a fixed 200px grid minimum overflows the card on a
+   narrow phone, and the fields inherited content-box sizing so 100% width
+   plus padding pushed them past the white panel onto the navy behind it */
+.rv-field input,
+.rv-field select,
+.rv-field textarea,
+.tiktok-box input,
+.tiktok-box select,
+.tiktok-box textarea {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.tiktok-box form { max-width: 100%; overflow-wrap: anywhere; }
+.tiktok-box form > div { min-width: 0; }
+
+@media (max-width: 620px) {
+  /* two fixed paddings (.tiktok-box 50px + form 30px) ate 160px of a phone
+     screen before the field grid even started, pushing the inputs off the
+     white panel onto the navy behind it */
+  .tiktok-section { padding-left: 14px !important; padding-right: 14px !important; }
+  .tiktok-box { padding: 30px 16px !important; }
+  .tiktok-box form { padding: 22px 16px !important; }
+  .tiktok-box form > div[style*="grid"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* footer logo sits in a left-aligned column on desktop; centre it once the
+   footer stacks */
+/* the footer stacks and centres at 992px, so the desktop logo's -45px pull
+   has to be neutralised at the same breakpoint — not 768px, or the wordmark
+   sits ~22px left of centre through the whole tablet band */
+@media (max-width: 991.98px) {
+  .footer-v2 .footer-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .footer-v2 .footer-blurb { text-align: center; }
+}
+
+/* contact page logo: the column keeps its desktop left alignment when it
+   stacks, so the mark reads as shifted right of the heading below it */
+@media (max-width: 991.98px) {
+  .about-contact .about-left { text-align: center; }
+  .about-contact .about-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

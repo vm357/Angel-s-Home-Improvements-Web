@@ -195,8 +195,8 @@
     <div class="cta-band" style="width: 100%; max-width: 1000px; background: linear-gradient(135deg, #1A2130 0%, #2C3A55 100%); border-radius: 16px; padding: 56px 40px; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; color: #fff">
       <h2 style="margin: 0; font-family: 'Canela', serif; font-weight: 300; font-size: clamp(1.9rem, 3.2vw, 2.6rem); letter-spacing: .5px">Want results like these in your home?</h2>
       <p style="margin: 0; max-width: 560px; font-family: 'Sora', sans-serif; font-size: 1rem; line-height: 1.7; opacity: .88">Tell us what you have in mind and we'll get back to you with a free consultation.</p>
-      <a href="contact.dc.html#quote" style="margin-top: 8px; display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 34px; border-radius: 999px; background: #fff; color: #1A2130; font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: .02em; text-decoration: none; transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, letter-spacing .3s ease" style-hover="transform: translateY(-3px); box-shadow: 0 12px 26px rgba(0,0,0,.28); letter-spacing: .06em">Request a Free Estimate</a>
-      <a href="https://www.tiktok.com/@angelshomeimprovement" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; font-family: 'Sora', sans-serif; font-size: 0.86rem; color: rgba(255,255,255,.8); text-decoration: none"><i class="fa-brands fa-tiktok"></i>More transformations on TikTok</a>
+      <a class="cta-solid" href="contact.dc.html#quote" style="margin-top: 8px; display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 34px; border-radius: 999px; background: #fff; color: #1A2130; font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: .02em; text-decoration: none; transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s ease, letter-spacing .3s ease" style-hover="transform: translateY(-3px); box-shadow: 0 12px 26px rgba(0,0,0,.28); letter-spacing: .06em">Request a Free Estimate</a>
+      <a class="cta-note" href="https://www.tiktok.com/@angelshomeimprovement" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; font-family: 'Sora', sans-serif; font-size: 0.86rem; color: rgba(255,255,255,.8); text-decoration: none"><i class="fa-brands fa-tiktok"></i>More transformations on TikTok</a>
     </div>
   </section>
 </div>
@@ -241,10 +241,48 @@ class Component extends DCLogic {
       if (!range) return;
       const set = () => ba.style.setProperty('--pos', range.value + '%');
       range.addEventListener('input', set);
-      ['pointerdown', 'touchstart'].forEach(e =>
-        range.addEventListener(e, () => ba.classList.add('is-dragging')));
-      ['pointerup', 'pointercancel', 'touchend', 'blur'].forEach(e =>
-        range.addEventListener(e, () => ba.classList.remove('is-dragging')));
+      range.addEventListener('blur', () => ba.classList.remove('is-dragging'));
+
+      // A bare <input type=range> only follows a touch that STARTS on its
+      // thumb, so on a phone the drag felt dead unless you happened to grab
+      // the divider. Track the pointer on the figure instead.
+      let dragging = false, locked = false, sx = 0, sy = 0;
+      const apply = x => {
+        const r = ba.getBoundingClientRect();
+        if (!r.width) return;
+        range.value = Math.max(0, Math.min(100, ((x - r.left) / r.width) * 100));
+        set();
+      };
+      ba.addEventListener('pointerdown', e => {
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        dragging = true;
+        // mouse/pen commit at once; touch waits to see if this is a
+        // horizontal drag or a vertical page scroll
+        locked = e.pointerType !== 'touch';
+        sx = e.clientX; sy = e.clientY;
+        ba.classList.add('is-dragging');
+        if (locked) apply(e.clientX);
+      });
+      ba.addEventListener('pointermove', e => {
+        if (!dragging) return;
+        if (!locked) {
+          const dx = Math.abs(e.clientX - sx), dy = Math.abs(e.clientY - sy);
+          if (dx < 6 && dy < 6) return;
+          if (dy > dx) { dragging = false; ba.classList.remove('is-dragging'); return; }
+          locked = true;
+          try { ba.setPointerCapture(e.pointerId); } catch (err) {}
+        }
+        if (e.cancelable) e.preventDefault();
+        apply(e.clientX);
+      });
+      const end = e => {
+        if (!dragging) return;
+        if (!locked && e && typeof e.clientX === 'number') apply(e.clientX);
+        dragging = false; locked = false;
+        ba.classList.remove('is-dragging');
+      };
+      ['pointerup', 'pointercancel', 'pointerleave'].forEach(n =>
+        ba.addEventListener(n, end));
       set();
     });
 
