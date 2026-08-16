@@ -36,17 +36,19 @@ collections:
       - name: "list"
         label: "Published Reviews"
         file: "site/reviews.json"
-        description: "Reviews arrive by email. Paste one in here to publish it, or untick Published to hide it."
+        description: "New reviews arrive here automatically with Published switched off. Read one, tick Published to put it on the site, or use the trash icon to deny it. Publish saves your decision."
         fields:
           - label: "Reviews"
             name: "reviews"
             widget: "list"
             label_singular: "Review"
-            summary: "{{fields.name}} — {{fields.rating}}★"
+            summary: "{{fields.name}} — {{fields.rating}}★ {{fields.published}}"
             fields:
-              - { label: "Published", name: "published", widget: "boolean", default: true }
+              - { label: "Published", name: "published", widget: "boolean", default: false, hint: "Off means nobody sees it. Tick it to put this review on the site." }
               - { label: "Name", name: "name", widget: "string" }
               - { label: "Town", name: "town", widget: "string", required: false }
               - { label: "Rating", name: "rating", widget: "number", value_type: "int", min: 1, max: 5, default: 5 }
               - { label: "Review", name: "text", widget: "text" }
               - { label: "Photo", name: "image", widget: "image", required: false }
+              - { label: "More photos", name: "extraImages", widget: "list", required: false, field: { label: "Photo", name: "image", widget: "image" } }
+              - { label: "Submitted", name: "submitted", widget: "datetime", required: false, read_only: true }

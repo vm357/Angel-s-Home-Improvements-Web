@@ -108,38 +108,24 @@
       <p>Kitchens · Bathrooms · Basements · Painting · Outdoor Living</p>
     </div>
 
-    <div class="reviews-grid">
-      <div class="review-card is-sample">
-        <div class="review-stars">★★★★★</div>
-        <blockquote>Two to four sentences from the client, in their own words. The strongest ones name the specific problem they had, what the crew did, and how the finished space works now.</blockquote>
-        <div class="review-meta">Client name — Staten Island, NY · Kitchen remodel</div>
+    <sc-if value="{{ hasReviews }}" hint-placeholder-val="{{ false }}">
+      <div class="reviews-grid">
+        <sc-for list="{{ reviews }}" as="rv" hint-placeholder-count="3">
+          <div class="review-card">
+            <div class="review-stars">{{ rv.stars }}</div>
+            <blockquote>{{ rv.text }}</blockquote>
+            <sc-if value="{{ rv.hasImage }}" hint-placeholder-val="{{ false }}">
+              <img loading="lazy" decoding="async" src="{{ rv.image }}" alt="Finished work photographed by the client" style="width: 100%; height: 190px; object-fit: cover; border-radius: 10px; margin: 16px 0 4px; display: block">
+            </sc-if>
+            <div class="review-meta">{{ rv.meta }}</div>
+          </div>
+        </sc-for>
       </div>
-      <div class="review-card is-sample">
-        <div class="review-stars">★★★★★</div>
-        <blockquote>Reviews that mention timeline and cleanliness convert better than ones that only say "great job" — ask clients whether the schedule and daily cleanup met expectations.</blockquote>
-        <div class="review-meta">Client name — Town, NJ · Bathroom renovation</div>
-      </div>
-      <div class="review-card is-sample">
-        <div class="review-stars">★★★★★</div>
-        <blockquote>A line about communication during the project reassures homeowners more than praise for the finished photos, which they can already see above.</blockquote>
-        <div class="review-meta">Client name — Town, NY · Basement finish</div>
-      </div>
-      <div class="review-card is-sample">
-        <div class="review-stars">★★★★★</div>
-        <blockquote>Short reviews are fine. One specific detail beats three sentences of general praise.</blockquote>
-        <div class="review-meta">Client name — Town, NY · Interior painting</div>
-      </div>
-      <div class="review-card is-sample">
-        <div class="review-stars">★★★★★</div>
-        <blockquote>If a client mentions a change or problem that got resolved well, that review is worth more than a flawless one — it shows how you handle issues.</blockquote>
-        <div class="review-meta">Client name — Town, NJ · Deck build</div>
-      </div>
-      <div class="review-card is-sample">
-        <div class="review-stars">★★★★★</div>
-        <blockquote>Ask permission to use first name, last initial and town. That specificity is what makes a review read as real.</blockquote>
-        <div class="review-meta">Client name — Town, NY · Outdoor kitchen</div>
-      </div>
-    </div>
+    </sc-if>
+
+    <sc-if value="{{ noReviews }}" hint-placeholder-val="{{ true }}">
+      <p style="text-align: center; max-width: 520px; margin: 0 auto; color: #4a5568; font-size: 16px; line-height: 1.7">Our first reviews are on their way. If we have finished a project for you, we would be glad to hear how it turned out — the form below takes a minute.</p>
+    </sc-if>
   </section>
 
   <section class="tiktok-section">
@@ -155,7 +141,11 @@
 
       <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
         <p class="mb-4">Leave a review below. Photos of the finished space are welcome — they help other homeowners picture the work.</p>
-        <form onSubmit="{{ onSubmit }}" encType="multipart/form-data" style="position: relative; z-index: 2; background: rgba(255,255,255,.96); border-radius: 14px; padding: 30px; text-align: left; display: grid; gap: 18px">
+        <form onSubmit="{{ onSubmit }}" style="position: relative; z-index: 2; background: rgba(255,255,255,.96); border-radius: 14px; padding: 30px; text-align: left; display: grid; gap: 18px">
+          <div aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden">
+            <label for="rv-website">Website</label>
+            <input type="text" id="rv-website" name="website" tabIndex="-1" autoComplete="off">
+          </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px">
             <div class="rv-field">
               <label style="display: block; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #1A2130; margin-bottom: 7px">Name</label>
@@ -188,6 +178,7 @@
               <i class="fa-solid fa-image"></i>
               <span>Add photos of the finished space</span>
               <input type="file" name="photos" accept="image/*" multiple="" onChange="{{ onFiles }}" style="display: none">
+              <span style="font-size: 12px; color: #8794a8">Up to 3</span>
             </label>
             <sc-if value="{{ hasPhotos }}" hint-placeholder-val="{{ false }}">
               <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px">
@@ -205,7 +196,7 @@
           </sc-if>
 
           <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap">
-            <button type="submit" disabled="{{ sending }}" class="cta-btn" style="border: none; min-height: 44px">Submit Review</button>
+            <button type="submit" disabled="{{ sending }}" class="cta-btn" style="border: none; min-height: 44px">{{ submitLabel }}</button>
             <span style="font-size: 13px; color: #6b7787; max-width: 300px; line-height: 1.5">Reviews are posted after we confirm the project.</span>
           </div>
         </form>
@@ -218,10 +209,30 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;formEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Review form&quot;}}">
 class Component extends DCLogic {
-  state = { rating: 5, photos: [], submitted: false, sending: false, error: "" };
+  state = { rating: 5, photos: [], submitted: false, sending: false, error: "", reviews: [], loaded: false };
 
   componentDidMount() {
-    const cards = Array.from(document.querySelectorAll('.reviews-grid .review-card'));
+    this.loadReviews();
+    this.revealCards();
+  }
+
+  async loadReviews() {
+    try {
+      const res = await fetch("site/reviews.json", { cache: "no-store" });
+      const data = await res.json();
+      const list = (data && Array.isArray(data.reviews) ? data.reviews : [])
+        .filter(r => r && r.published && r.text);
+      this.setState({ reviews: list, loaded: true }, () => this.revealCards());
+    } catch (err) {
+      this.setState({ loaded: true });
+    }
+  }
+
+  revealCards() {
+    const cards = Array.from(document.querySelectorAll('.reviews-grid .review-card'))
+      .filter(el => !el.dataset.rvWatched);
+    if (!cards.length) return;
+    cards.forEach(el => { el.dataset.rvWatched = '1'; });
     cards.forEach((el, i) => {
       el.classList.add('rv-reveal');
       el.style.transitionDelay = (i * 110) + 'ms';
@@ -250,12 +261,35 @@ class Component extends DCLogic {
     this._rvSweep = sweep;
   }
 
+  // Photos are resized in the browser so a phone snapshot arrives as a few
+  // hundred KB rather than 8 MB — the function has a hard request-size limit.
+  shrink(file) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      const url = URL.createObjectURL(file);
+      img.onload = () => {
+        const max = 1400;
+        const w = Math.min(img.naturalWidth || max, max);
+        const h = Math.round((img.naturalHeight || max) * (w / (img.naturalWidth || max)));
+        const canvas = document.createElement('canvas');
+        canvas.width = w;
+        canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        URL.revokeObjectURL(url);
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.82);
+        resolve({ type: 'image/jpeg', data: dataUrl.slice(dataUrl.indexOf(',') + 1) });
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('unreadable image')); };
+      img.src = url;
+    });
+  }
+
   setRating(n) { this.setState({ rating: n }); }
 
   onFiles = (e) => {
-    const files = Array.from(e.target.files || []);
+    const files = Array.from(e.target.files || []).filter(f => /^image\//.test(f.type));
     const added = files.map(f => ({ name: f.name, file: f, url: URL.createObjectURL(f) }));
-    this.setState(s => ({ photos: s.photos.concat(added) }));
+    this.setState(s => ({ photos: s.photos.concat(added).slice(0, 3) }));
     e.target.value = "";
   };
 
@@ -265,33 +299,60 @@ class Component extends DCLogic {
 
   onSubmit = async (e) => {
     e.preventDefault();
+    if (this.state.sending) return;
     const form = e.target;
-    const fd = new FormData();
-    ["name", "town", "review"].forEach(k => fd.append(k, form.elements[k].value));
-    fd.append("rating", String(this.state.rating));
-    this.state.photos.forEach((p, i) => { if (p.file) fd.append("photo" + (i + 1), p.file, p.name); });
+    const val = k => (form.elements[k] ? form.elements[k].value : "");
+    this.setState({ sending: true, error: "" });
 
-    // Set the endpoint prop (e.g. a Formspree form URL) to deliver submissions.
-    const endpoint = this.props.formEndpoint;
-    if (!endpoint) {
-      console.warn("Review form has no formEndpoint set — submission was not sent.", fd);
-      this.setState({ submitted: true });
+    let photos = [];
+    try {
+      photos = await Promise.all(this.state.photos.slice(0, 3).map(p => this.shrink(p.file)));
+    } catch (err) {
+      this.setState({ sending: false, error: "One of those photos could not be read. Try removing it and submitting again." });
       return;
     }
-    this.setState({ sending: true, error: "" });
+
+    const endpoint = this.props.formEndpoint || "/api/submit-review";
     try {
-      const res = await fetch(endpoint, { method: "POST", body: fd, headers: { Accept: "application/json" } });
-      if (!res.ok) throw new Error("Request failed: " + res.status);
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: val("name"),
+          town: val("town"),
+          review: val("review"),
+          website: val("website"),
+          rating: this.state.rating,
+          photos
+        })
+      });
+      const out = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(out.error || "Request failed: " + res.status);
       this.setState({ sending: false, submitted: true });
     } catch (err) {
-      this.setState({ sending: false, error: "We could not send your review. Please try again, or email us at angellogan0987@gmail.com." });
+      this.setState({
+        sending: false,
+        error: (err && err.message && !/^Request failed/.test(err.message))
+          ? err.message
+          : "We could not send your review. Please try again, or email us at angellogan0987@gmail.com."
+      });
     }
   };
 
   renderVals() {
     const r = this.state.rating;
     const labels = ["", "Poor", "Fair", "Good", "Very good", "Excellent"];
+    const list = this.state.reviews;
     return {
+      reviews: list.map(rv => ({
+        stars: "★★★★★".slice(0, Math.max(1, Math.min(5, rv.rating || 5))),
+        text: rv.text,
+        image: rv.image || "",
+        hasImage: !!rv.image,
+        meta: [rv.name, rv.town].filter(Boolean).join(" — ")
+      })),
+      hasReviews: list.length > 0,
+      noReviews: this.state.loaded && list.length === 0,
       submitted: this.state.submitted,
       showForm: !this.state.submitted,
       ratingLabel: labels[r] || "",

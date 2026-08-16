@@ -1,5 +1,13 @@
 [build]
   publish = "."
+  functions = "netlify/functions"
+
+# The public review form posts here; the function commits the review into
+# site/reviews.json marked unpublished, for approval in /admin.
+[[redirects]]
+  from = "/api/submit-review"
+  to = "/.netlify/functions/submit-review"
+  status = 200
 
 # Clean URLs — the meta tags all point at /project-gallery, not /project-gallery.dc.html
 [[redirects]]
@@ -107,9 +115,14 @@
   [headers.values]
     X-Robots-Tag = "noindex"
 
-# The CMS rewrites this file; never let a stale copy be served
+# The CMS rewrites these files; never let a stale copy be served
 [[headers]]
   for = "/site/gallery.json"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/site/reviews.json"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
