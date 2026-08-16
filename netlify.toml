@@ -47,6 +47,61 @@
   to = "/terms-of-service.dc.html"
   status = 200
 
+# Canonical: the .dc.html file itself redirects to the clean URL so Google
+# never sees two addresses for one page.
+[[redirects]]
+  from = "/index.dc.html"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/our-work.dc.html"
+  to = "/our-work"
+  status = 301
+[[redirects]]
+  from = "/interior-services.dc.html"
+  to = "/interior-services"
+  status = 301
+[[redirects]]
+  from = "/exterior-services.dc.html"
+  to = "/exterior-services"
+  status = 301
+[[redirects]]
+  from = "/project-gallery.dc.html"
+  to = "/project-gallery"
+  status = 301
+[[redirects]]
+  from = "/reviews.dc.html"
+  to = "/reviews"
+  status = 301
+[[redirects]]
+  from = "/contact.dc.html"
+  to = "/contact"
+  status = 301
+[[redirects]]
+  from = "/privacy-policy.dc.html"
+  to = "/privacy-policy"
+  status = 301
+[[redirects]]
+  from = "/terms-of-service.dc.html"
+  to = "/terms-of-service"
+  status = 301
+
+# Photos, videos and stylesheets are versioned by filename — cache them hard.
+[[headers]]
+  for = "/site/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/site/gallery/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.mp4"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
 [[headers]]
   for = "/admin/*"
   [headers.values]
@@ -55,5 +110,26 @@
 # The CMS rewrites this file; never let a stale copy be served
 [[headers]]
   for = "/site/gallery.json"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Stylesheets and scripts are edited in place — never let a stale copy stick.
+[[headers]]
+  for = "/site/style.css"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/site/upgrade.css"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/site/upgrade.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/site/legal.css"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"

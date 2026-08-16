@@ -1,11 +1,6 @@
 {
   "photos": [
     {
-      "image": "site/uploads/fence-gate-1024x680-1.jpg",
-      "caption": "Privacy fence",
-      "category": "Outdoor"
-    },
-    {
       "id": "g-kit-2",
       "image": "site/gallery/g-kit-2.webp",
       "caption": "Full Kitchen Redesign",
@@ -79,7 +74,7 @@
     },
     {
       "id": "g-int-6",
-      "image": "site/image5.png",
+      "image": "site/image5.webp",
       "caption": "Sunroom Refresh",
       "category": "Interiors"
     },
@@ -91,13 +86,13 @@
     },
     {
       "id": "g-int-8",
-      "image": "site/after3.png",
+      "image": "site/after3.webp",
       "caption": "Sunroom Refresh",
       "category": "Interiors"
     },
     {
       "id": "g-out-1",
-      "image": "site/deck.png",
+      "image": "site/deck.webp",
       "caption": "Backyard deck build",
       "category": "Outdoor"
     },
@@ -115,7 +110,7 @@
     },
     {
       "id": "g-bath-3",
-      "image": "site/after2.png",
+      "image": "site/after2.webp",
       "caption": "Front porch rebuild",
       "category": "Outdoor"
     },

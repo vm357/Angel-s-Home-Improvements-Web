@@ -847,7 +847,7 @@ body.showcase-page {
 .showcase-banner {
   width: 100%;
   height: 60vh; /* adjust height */
-  background: url("banner.png") center/cover no-repeat;
+  background: url("banner.webp") center/cover no-repeat;
   position: relative;
   display: flex;
   align-items: center;
