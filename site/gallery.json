@@ -1,6 +1,11 @@
 {
   "photos": [
     {
+      "image": "site/uploads/after1.jpg",
+      "caption": "Test",
+      "category": "Outdoor"
+    },
+    {
       "id": "g-kit-2",
       "image": "site/gallery/g-kit-2.webp",
       "caption": "Full Kitchen Redesign",
@@ -155,11 +160,6 @@
       "image": "site/gallery/g-new-7.webp",
       "caption": "Tub + Shower with Floating Sink",
       "category": "Bathrooms"
-    },
-    {
-      "image": "site/uploads/after1.jpg",
-      "caption": "Test",
-      "category": "Outdoor"
     }
   ]
 }
