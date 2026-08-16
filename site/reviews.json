@@ -1,7 +1,7 @@
 {
   "reviews": [
     {
-      "published": false,
+      "published": true,
       "name": "Test Person",
       "town": "Staten Island, NY",
       "rating": 5,
