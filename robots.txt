@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# The CMS login — no reason for search engines to index it
+Disallow: /admin
+Disallow: /admin/
+
+Sitemap: https://angelshomeimprovementsinc.com/sitemap.xml
