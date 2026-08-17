@@ -202,7 +202,7 @@ class Component extends DCLogic {
   state = { cat: "All", lbId: null, lbStep: 0, filled: {}, items: SEED };
 
   componentDidMount() {
-    fetch('site/gallery.json', { cache: 'no-store' })
+    fetch('site/gallery.json?t=' + Date.now(), { cache: 'no-store' })
       .then(r => r.ok ? r.json() : null)
       .then(j => { const items = fromCMS(j); if (items.length) this.setState({ items }); })
       .catch(() => {});

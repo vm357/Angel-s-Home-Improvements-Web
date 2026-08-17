@@ -295,24 +295,18 @@
     <h2>What Our Clients Say</h2>
     <p>Reviews from homeowners in NY &amp; NJ</p>
   </div>
-  <div class="reviews-grid">
-    <div class="review-card is-sample">
-      <div class="review-stars">★★★★★</div>
-      <blockquote>Two to four sentences from the client, in their own words — the problem they had, what the crew did, and how the space works now.</blockquote>
-      <div class="review-meta">Client name — Town, NY</div>
+  <sc-if value="{{ hasReviews }}" hint-placeholder-val="{{ false }}">
+    <div class="reviews-grid">
+      <sc-for list="{{ reviews }}" as="rv" hint-placeholder-count="3">
+        <div class="review-card">
+          <div class="review-stars">{{ rv.stars }}</div>
+          <blockquote>{{ rv.text }}</blockquote>
+          <div class="review-meta">{{ rv.meta }}</div>
+        </div>
+      </sc-for>
     </div>
-    <div class="review-card is-sample">
-      <div class="review-stars">★★★★★</div>
-      <blockquote>Reviews that mention timeline and daily cleanup convert better than ones that only say "great job".</blockquote>
-      <div class="review-meta">Client name — Town, NJ</div>
-    </div>
-    <div class="review-card is-sample">
-      <div class="review-stars">★★★★★</div>
-      <blockquote>A line about communication during the project reassures homeowners more than praise for the finished photos.</blockquote>
-      <div class="review-meta">Client name — Town, NY</div>
-    </div>
-  </div>
-  <div class="ba-hint" style="margin-top: 34px">
+  </sc-if>
+  <div class="ba-hint" style="margin-top: 30px">
     <a href="reviews.dc.html" style="color: #1A2130; text-decoration: none; border-bottom: 1px solid #83B4FF; padding-bottom: 3px">Read more reviews</a>
   </div>
 </section>
@@ -321,7 +315,32 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
+  state = { reviews: [] };
+
+  // The three most recent approved reviews, straight from the file the CMS writes.
+  async loadReviews() {
+    try {
+      const res = await fetch('site/reviews.json', { cache: 'no-store' });
+      const data = await res.json();
+      const list = (data && Array.isArray(data.reviews) ? data.reviews : [])
+        .filter(r => r && r.published && r.text)
+        .slice(0, 3);
+      if (list.length) this.setState({ reviews: list }, () => this.revealReviews());
+    } catch (err) { /* strip stays hidden */ }
+  }
+
+  revealReviews() {
+    document.querySelectorAll('.reviews-strip .review-card').forEach((el, i) => {
+      if (el.dataset.rvReveal) return;
+      el.dataset.rvReveal = '1';
+      el.style.transitionDelay = (i * 100) + 'ms';
+      el.classList.add('reveal');
+      requestAnimationFrame(() => el.classList.add('is-in'));
+    });
+  }
+
   componentDidMount() {
+    this.loadReviews();
     const start = () => {
       if (!window.Swiper || !window.gsap) return setTimeout(start, 120);
       new window.Swiper('.hero-slider', {
@@ -369,7 +388,6 @@ class Component extends DCLogic {
     push('.social-section h2');
     push('.social-section .video-card');
     push('.reviews-strip .ba-head');
-    push('.reviews-strip .review-card');
     push('.lead-section .lead-card');
     targets.forEach((el, i) => {
       el.classList.add('reveal');
@@ -466,6 +484,18 @@ class Component extends DCLogic {
       go();
       v.addEventListener('loadeddata', go, { once: true });
     });
+  }
+
+  renderVals() {
+    const list = this.state.reviews;
+    return {
+      reviews: list.map(rv => ({
+        stars: '★★★★★'.slice(0, Math.max(1, Math.min(5, rv.rating || 5))),
+        text: rv.text,
+        meta: [rv.name, rv.town].filter(Boolean).join(' — ')
+      })),
+      hasReviews: list.length > 0
+    };
   }
 }
 </script>

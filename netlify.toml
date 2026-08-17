@@ -94,7 +94,30 @@
   to = "/terms-of-service"
   status = 301
 
-# Photos, videos and stylesheets are versioned by filename — cache them hard.
+# Header rules are matched in order and the FIRST match wins for a given
+# header, so everything the CMS or I rewrite in place must be listed BEFORE
+# the catch-all below, or it inherits the one-year cache and goes stale.
+[[headers]]
+  for = "/site/reviews.json"
+  [headers.values]
+    Cache-Control = "no-store, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/site/gallery.json"
+  [headers.values]
+    Cache-Control = "no-store, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/site/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/site/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Photos and videos are versioned by filename — cache them hard.
 [[headers]]
   for = "/site/*"
   [headers.values]
@@ -115,34 +138,3 @@
   [headers.values]
     X-Robots-Tag = "noindex"
 
-# The CMS rewrites these files; never let a stale copy be served
-[[headers]]
-  for = "/site/gallery.json"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-
-[[headers]]
-  for = "/site/reviews.json"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-
-# Stylesheets and scripts are edited in place — never let a stale copy stick.
-[[headers]]
-  for = "/site/style.css"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-
-[[headers]]
-  for = "/site/upgrade.css"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-
-[[headers]]
-  for = "/site/upgrade.js"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-
-[[headers]]
-  for = "/site/legal.css"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
